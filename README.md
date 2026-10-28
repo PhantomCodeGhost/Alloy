@@ -15,6 +15,32 @@
 
 ---
 
+## 📌 Recommended & Supported APK Versions
+
+DexKit hooks target methods at runtime using structural bytecode fingerprints. When an app updates past its supported version, obfuscation and internal class structures change, which causes the module to show **"error while applying following patches"** or allows ads to bypass the hook.
+
+For best results, download the **recommended APK versions** below (preferably from trusted repositories like [APKMirror](https://www.apkmirror.com/)) and **disable auto-updates in Google Play Store** for patched apps:
+
+| App | Package ID | Tested / Recommended Version | Patch Source | Compatibility Notes |
+|:---|:---|:---|:---|:---|
+| **YouTube** | `com.google.android.youtube` | **19.34.42** / **19.43.41** / Latest Stable | NexAlloy / Morphe | Dynamic fingerprints; broadly compatible with stable releases. |
+| **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | NexAlloy / Morphe | Broadly compatible across stable builds. |
+| **Instagram** | `com.instagram.android` | **447.0.0.55.81** (arm64-v8a) | Piko (`crimera`) | **Version-pinned.** Newer releases (v450+) alter feed JSON parsers and ad injection points. |
+| **Brave Browser** | `com.brave.browser`<br>`com.brave.browser_beta`<br>`com.brave.browser_nightly` | **1.92.140** (v1.92.x) | `dh6k` & `bufferk` | **Version-pinned.** Origin subscription profiles change in newer Chromium rebases. Beta/Nightly are experimental. |
+| **Spotify** | `com.spotify.music` | **8.9.18.512** – **8.9.84.594** (v8.9.x) | 2eno (`2eno-patches`) | **Version-pinned.** Spotify 9.0+ uses server-side dynamic ad pipelines that bypass client-side view hooks (causing audio/video ads to still play). Enable *"Device Broadcast Status"* in Spotify settings for audio ad muting. |
+| **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2024.40.0** / Latest Stable | NexAlloy / Morphe | Compatible with recent stable versions. |
+| **Threads** | `com.instagram.barcelona` | **340.0.0.32.108** / **350.x** | NexAlloy / Meta | Stable across 340.x - 350.x. |
+| **Google Photos** | `com.google.android.apps.photos` | **Any Recent Stable** | NexAlloy / ReVanced | Pixel XL device spoofing is version-independent. |
+| **Photomath** | `com.microblink.photomath` | **8.30.0** – **8.32.0** | NexAlloy | Plus subscription unlock. |
+| **Strava** | `com.strava` | **360.10** – **370.x** | NexAlloy | Subscription feature unlock. |
+| **AllTrails** | `com.alltrails.alltrails` | **18.15.0** – **19.x** | NexAlloy | Peak membership enable. |
+
+> [!TIP]
+> **Troubleshooting "error while applying following patches":**
+> If LSPosed reports an error while applying a patch, check your installed app version against the table above. Downgrading the target app to its tested version will resolve fingerprint mismatches.
+
+---
+
 ## 📱 Supported Apps & Patches
 
 ### 🎥 YouTube (`com.google.android.youtube`)
