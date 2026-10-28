@@ -26,6 +26,7 @@ val appPatchConfigurations = listOf(
     AppPatchInfo("Brave", "com.brave.browser", BravePatches),
     AppPatchInfo("Brave Beta", "com.brave.browser_beta", BravePatches),
     AppPatchInfo("Brave Nightly", "com.brave.browser_nightly", BravePatches),
+    AppPatchInfo("Spotify", "com.spotify.music", io.github.nexalloy.twoeno.spotify.SpotifyPatches),
 )
 
 val patchesByPackage = appPatchConfigurations.associate { it.packageName to it.patches }

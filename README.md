@@ -1,110 +1,107 @@
 <div align="center">
-  <h1>NexAlloy</h1>
-  <a href="https://discord.gg/QWUrAA2mKq"><img alt="Discord Server" src="https://img.shields.io/badge/Discord%20Server-5865F2.svg?logo=discord&logoColor=white"></a>
-  <a href="https://t.me/revancedxposed"><img alt="Telegram Channel" src="https://img.shields.io/badge/Telegram_Channel-blue.svg?logo=telegram&logoColor=white"></a>
-  <a href="https://github.com/NexAlloy/NexAlloy/releases/latest"><img alt="GitHub Downloads" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.chsbuffer.workers.dev%2F%3Frepos%3DNexAlloy%2FNexAlloy%26cacheSeconds%3D3600"></a>
-  <a href="https://github.com/NexAlloy/NexAlloy"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/NexAlloy/NexAlloy"></a>  
-  <br>
+  <h1>Alloy</h1>
+  <p><strong>LSPosed / Vector module for runtime app modifications</strong></p>
+  <p>Package ID: <code>com.alloy.phantom</code> | Target Platform: Android 8.1 – Android 17 (API 37)</p>
 </div>
 
-**ChsBuffer's LSPosed module, powered by Morphe, ReVanced, and beyond.**  
-> [!CAUTION]
-> **Migration Notice:** This project has evolved from **ReVancedXposed** to **NexAlloy**. 
-> 
-> **Upgrading:** We’ve kept the original Package ID for your convenience. You can install this as an update, but **you must manually export your settings from the old version and import them into the new one** to keep your configuration.
+---
 
->[!IMPORTANT]  
-> - This is **NOT an official Morphe or ReVanced project**, do not ask their developers for help.  
-> - **Root access** is strictly **required** to use this module!
-> - **Having issues?** Check the **[FAQ](https://github.com/NexAlloy/NexAlloy/wiki/Frequently-Asked-Questions)** before reporting.
+**Alloy** is an open-source LSPosed runtime hook module (forked from NexAlloy, based on DexKit and libxposed API 101). It modifies supported apps at runtime without touching or resigning the original APKs.
 
-## Downloads
+> [!IMPORTANT]  
+> - **Root access** and **LSPosed** or **Vector** (maintained LSPosed fork) are **strictly required**.
+> - This project is an independent community fork and is **not affiliated with Morphe, ReVanced, or the original app developers**.
+> - Android 17 (API 37) SDK is fully supported.
 
-- **Release build**: [Download](https://github.com/NexAlloy/NexAlloy/releases/latest)
-- **Nightly build**: [Download](https://github.com/NexAlloy/NexAlloy/releases/tag/autobuild)
+---
 
-<sub>If you've joined the YouTube beta program, please try the nightly build before reporting an issue.</sub>
+## 📱 Supported Apps & Patches
 
-> [!TIP]
-> **Volunteers wanted:** Help test [nightly builds](https://nightly.link/NexAlloy/NexAlloy/workflows/android/main)
-> and [report crashes, regressions, or broken patches](https://github.com/NexAlloy/NexAlloy/issues/new/choose).
-> Use the [debug build](https://nightly.link/NexAlloy/NexAlloy/workflows/android/main/nexalloy-ci-debug-apk.zip) when reporting issues.
-> Your feedback helps us catch issues before release and improve the quality of stable builds.
-
-## Patches
-
-### YouTube
-
+### 🎥 YouTube (`com.google.android.youtube`)
 - Remove ads
 - SponsorBlock
 - Return YouTube Dislike
 - DeArrow (alternative titles and thumbnails)
-- Remove background playback restrictions
-- AI channel filtering and reporting (AiSList)
-- Add to queue
-- Swipe controls
-- Seekbar
-- Remove share links tracking query parameter
-- Open system share sheet
-- Hide and change navigation buttons
-- Remember video quality changes
-- Show video quality button
-- Show advanced video quality menu
-- Copy video url video player button
-- Copy video titles and comments
-- Open external downloader app
-- Custom playback speed
-- Remember playback speed
-- Playback speed dialog button
-- Hide layout components
-- Hide feed flyout menu items
-- Hide video action buttons
-- Disable Shorts resuming on startup
-- Disable video codecs
-- Disable auto captions
-- Bypass image region restrictions
-- Change start page
-- Channel search
-- Channel whitelist
+- Background playback
+- Swipe controls & Seekbar customization
+- Remove share link tracking parameters
+- Video quality presets & memory
 
-### YouTube Music
-- Remove music video ads
-- Remove background playback restrictions
-- Hide upgrade button
-- Hide 'Get Music Premium' label
-- Enable exclusive audio playback
+### 🎵 YouTube Music (`com.google.android.apps.youtube.music`)
+- Remove audio/video ads
+- Background playback
+- Hide upgrade buttons & premium prompts
+- Exclusive audio playback
 
-### Reddit
+### 🦁 Brave Browser (`com.brave.browser`, `com.brave.browser_beta`, `com.brave.browser_nightly`)
+- **Brave Origin**: Unlocks Brave Origin and enables internal feature toggle controls
+
+### 🎧 Spotify (`com.spotify.music`)
+*(Ad-blocking & anti-tracking only — no Premium unlock)*
+- Block popup ads
+- Hide ad sections & banner views
+- Hide video ads & playlist ads
+- Hide context menu upsells
+- Hide Premium tab
+- Mute audio ads *(works best when "Device Broadcast Status" is enabled in Spotify settings)*
+- Fix third-party launcher widgets
+- Sanitize sharing links
+
+### 📸 Instagram (`com.instagram.android`)
+*(Ported from Piko)*
+- Hide feed ads & sponsored reels
+- Hide suggested content & suggested accounts
+- Sanitize sharing links
+
+### 🧵 Threads (`com.instagram.barcelona`)
 - Hide ads
+
+### 🤖 Reddit (`com.reddit.frontpage`)
+- Hide promoted feed posts & banner ads
 - Sanitize sharing links
 - Start as guest
 
-### Google Photos
-- Spoof Pixel XL
+### 📷 Google Photos (`com.google.android.apps.photos`)
+- Spoof Pixel XL for unlimited backup
 
-### Photomath
-- Unlock plus
+### ➗ Photomath (`com.microblink.photomath`)
+- Unlock plus features
 
-### Instagram
-- Hide ads
-
-### Threads
-- Hide ads
-
-### Strava
+### 🏃 Strava (`com.strava`)
 - Unlock subscription features
 - Disable subscription suggestions
 
-### AllTrails
+### 🌲 AllTrails (`com.alltrails.alltrails`)
 - Enable Peak membership
 
-## Supports
-[![Discord Server](https://img.shields.io/badge/Join-Discord-5865F2.svg?logo=discord)](https://discord.gg/QWUrAA2mKq)  
-[![FAQ](https://img.shields.io/badge/Read-FAQ-orange.svg?logo=github)](https://github.com/NexAlloy/NexAlloy/wiki/Frequently-Asked-Questions)  
-or [Create an issue](https://github.com/NexAlloy/NexAlloy/issues/new/choose)
+---
 
-## ⭐ Credits
+## 🛠️ Building from Source
 
-[DexKit](https://luckypray.org/DexKit/en/): a high-performance dex runtime parsing library.  
-[Morphe](https://morphe.software): Transform Your Android Apps  
-[ReVanced](https://revanced.app): Continuing the legacy of Vanced at [revanced.app](https://revanced.app)
+### Prerequisites
+- JDK 17
+- Android SDK Platform 37 (installed automatically via Gradle)
+- Git with `core.longpaths = true`
+
+```bash
+git clone --recurse-submodules https://github.com/PhantomCodeGhost/Alloy.git
+cd Alloy
+./gradlew assembleDebug
+```
+
+The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
+
+---
+
+## 📜 Credits & Acknowledgments
+
+- **NexAlloy** by ChsBuffer: Original base project (GPL-3.0)
+- **DexKit** by LuckyPray: High-performance runtime dex parsing library
+- **Piko** by crimera: Instagram patch logic and fingerprints
+- **2eno**: Spotify patch implementations and reference Xposed port
+- **bufferk** & **dh6k**: Brave Origin patch implementations
+- **Morphe** & **ReVanced**: Bytecode patch libraries and inspiration
+
+## ⚖️ License
+
+GNU General Public License v3.0 (GPL-3.0). See [LICENSE](LICENSE) and [NOTICE](NOTICE) for full terms.
