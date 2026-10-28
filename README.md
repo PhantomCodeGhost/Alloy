@@ -28,6 +28,8 @@ For best results, download the **recommended APK versions** below (preferably fr
 | **Instagram** | `com.instagram.android` | **447.0.0.55.81** (arm64-v8a) | Piko (`crimera`) | **Version-pinned.** Newer releases (v450+) alter feed JSON parsers and ad injection points. |
 | **Brave Browser** | `com.brave.browser`<br>`com.brave.browser_beta`<br>`com.brave.browser_nightly` | **1.92.140** (v1.92.x) | `dh6k` & `bufferk` | **Version-pinned.** Origin subscription profiles change in newer Chromium rebases. Beta/Nightly are experimental. |
 | **Spotify** | `com.spotify.music` | **8.9.18.512** – **8.9.84.594** (v8.9.x) | 2eno (`2eno-patches`) | **Version-pinned.** Spotify 9.0+ uses server-side dynamic ad pipelines that bypass client-side view hooks (causing audio/video ads to still play). Enable *"Device Broadcast Status"* in Spotify settings for audio ad muting. |
+| **Pinterest** | `com.pinterest` | **14.23.0** – **14.39.0** (v14.x) | `browzomje` | **Version-pinned.** Filters sponsored pins, collapses promo views, sanitizes shared links. |
+| **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | **Version-pinned.** Unlocks Super subscriber features, unlimited hearts/energy, debug menu, rampup time. |
 | **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2024.40.0** / Latest Stable | NexAlloy / Morphe | Compatible with recent stable versions. |
 | **Threads** | `com.instagram.barcelona` | **340.0.0.32.108** / **350.x** | NexAlloy / Meta | Stable across 340.x - 350.x. |
 | **Google Photos** | `com.google.android.apps.photos` | **Any Recent Stable** | NexAlloy / ReVanced | Pixel XL device spoofing is version-independent. |
@@ -72,6 +74,18 @@ For best results, download the **recommended APK versions** below (preferably fr
 - Mute audio ads *(works best when "Device Broadcast Status" is enabled in Spotify settings)*
 - Fix third-party launcher widgets
 - Sanitize sharing links
+
+### 📌 Pinterest (`com.pinterest`)
+*(Ported from browzomje)*
+- **Disable ads**: Removes sponsored pins and promoted items from home, search, related and board feeds
+- **Hide ad views**: Collapses promotional view modules and sponsored cards
+- **Sanitize sharing links**: Removes tracking parameters and invite codes when copying or sharing links
+
+### 🦉 Duolingo (`com.duolingo`)
+*(Ported from hoo-dles)*
+- **Enable Super / Max features**: Unlocks subscriber features and provides unlimited hearts/energy
+- **Enable debug menu**: Unlocks developer debug settings menu
+- **Unlimited RampUp time**: Sets challenge timer to 3600 seconds
 
 ### 📸 Instagram (`com.instagram.android`)
 *(Ported from Piko)*
@@ -125,6 +139,8 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 - **DexKit** by LuckyPray: High-performance runtime dex parsing library
 - **Piko** by crimera: Instagram patch logic and fingerprints
 - **2eno**: Spotify patch implementations and reference Xposed port
+- **browzomje**: Pinterest patch logic and ad detection
+- **hoo-dles**: Duolingo subscriber & debug patch logic
 - **bufferk** & **dh6k**: Brave Origin patch implementations
 - **Morphe** & **ReVanced**: Bytecode patch libraries and inspiration
 

@@ -187,7 +187,7 @@ class SettingsActivity : Activity(), SettingApplication.ServiceStateListener {
                 setTitle(R.string.faq_title)
                 intent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/NexAlloy/NexAlloy/wiki/Frequently-Asked-Questions")
+                    Uri.parse("https://github.com/PhantomCodeGhost/Alloy#readme")
                 )
                 rootScreen.addPreference(this)
             }

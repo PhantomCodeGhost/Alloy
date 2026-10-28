@@ -39,10 +39,10 @@ data class ReleaseInfo(
         currentCommit: String
     ): String? {
         if (checkBetaUpdates) {
-            val apkNamePattern = Regex("""NexAlloy-(.+)\.apk""")
+            val apkNamePattern = Regex("""(?:NexAlloy|Alloy|app)-(.+)\.apk""")
             val commit = checkNotNull(assets.mapNotNull {
                 apkNamePattern.matchEntire(it.name)?.groupValues?.get(1)
-            }.singleOrNull()) { "Expected exactly one NexAlloy APK asset in autobuild" }
+            }.singleOrNull()) { "Expected exactly one Alloy APK asset in autobuild" }
             return "Nightly build ($commit)".takeIf { commit != currentCommit }
         }
 
@@ -74,8 +74,8 @@ data class VersionInfo(val versionCode: Int, val versionName: String) {
     }
 }
 
-const val OWNER = "NexAlloy"
-const val REPO = "NexAlloy"
+const val OWNER = "PhantomCodeGhost"
+const val REPO = "Alloy"
 const val currentVersionCode = BuildConfig.VERSION_CODE
 const val CHECK_BETA_UPDATES = "check_beta_updates"
 
@@ -139,11 +139,11 @@ class UpdateChecker(private val checkBetaUpdates: () -> Boolean = { false }) : C
                     betaUpdates, currentVersionCode, BuildConfig.COMMIT_HASH
                 )
                 if (updateVersion != null) {
-                    Logger.printInfo { "Found new version of NexAlloy $updateVersion" }
+                    Logger.printInfo { "Found new version of Alloy $updateVersion" }
                     showUpdateDialog(release, updateVersion)
                 } else {
-                    Logger.printInfo { "no update found for NexAlloy" }
-                    if (!silent) Utils.showToastLong("NexAlloy is up to date.")
+                    Logger.printInfo { "no update found for Alloy" }
+                    if (!silent) Utils.showToastLong("Alloy is up to date.")
                 }
             } catch (e: Throwable) {
                 Logger.printException({ "checkUpdate error" }, e)

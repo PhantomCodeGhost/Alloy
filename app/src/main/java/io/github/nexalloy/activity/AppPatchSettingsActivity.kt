@@ -10,7 +10,9 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.preference.CheckBoxPreference
 import android.preference.Preference
+import android.preference.PreferenceCategory
 import android.preference.PreferenceFragment
+import android.preference.PreferenceGroup
 import android.provider.Settings
 import android.view.MenuItem
 import android.view.View
@@ -81,16 +83,15 @@ class AppPatchSettingsActivity : Activity() {
             }
 
             activity.runOnUiThread {
-                // Retrieve appName from the Activity's Intent extras
                 val appName = arguments?.getString(ARGUMENT_APP_NAME)
                 val appPatchInfo = appPatchConfigurations.find { it.appName == appName }
                 if (appPatchInfo == null) throw Exception("AppPatchInfo not found, app_name: $appName")
                 val defaultPatchStates = appPatchInfo.patches.associate { it.name to it.use }
 
                 val screen = preferenceManager.createPreferenceScreen(context)
-
                 val remotePrefs = service.getRemotePreferences(appPatchInfo.packageName)
 
+                // Header quick action buttons
                 object : Preference(context) {
                     @Deprecated("Deprecated in Java")
                     override fun onBindView(view: View) {
@@ -120,27 +121,63 @@ class AppPatchSettingsActivity : Activity() {
                     screen.addPreference(this)
                 }
 
-                for (patchInfo in appPatchInfo.patches.sortedBy { it.name }) {
-                    if (patchInfo.name == "") continue
-                    if (patchInfo.name.startsWith("<")) continue
-                    CheckBoxPreference(context).apply {
-                        key = patchInfo.name // Pref Key
-                        title = patchInfo.name
-                        summary = patchInfo.description
-                        isChecked = remotePrefs.getBoolean(patchInfo.name, patchInfo.use)
+                val (recommendedPatches, experimentalPatches) = appPatchInfo.patches
+                    .filter { it.name.isNotEmpty() && !it.name.startsWith("<") }
+                    .partition { it.use }
 
-                        setOnPreferenceChangeListener { _, newValue ->
-                            val enabled = newValue as Boolean
-                            remotePrefs.edit().putBoolean(key, enabled).apply()
+                // 1. Recommended Patches Category
+                if (recommendedPatches.isNotEmpty()) {
+                    val recommendedCategory = PreferenceCategory(context).apply {
+                        title = "Recommended Patches"
+                    }
+                    screen.addPreference(recommendedCategory)
 
-                            val vibrator =
-                                context.getSystemService(VIBRATOR_SERVICE) as Vibrator?
-                            if (vibrator?.hasVibrator() ?: false) {
-                                vibrator.vibrate(50)
+                    for (patchInfo in recommendedPatches.sortedBy { it.name }) {
+                        CheckBoxPreference(context).apply {
+                            key = patchInfo.name
+                            title = patchInfo.name
+                            summary = patchInfo.description
+                            isChecked = remotePrefs.getBoolean(patchInfo.name, patchInfo.use)
+
+                            setOnPreferenceChangeListener { _, newValue ->
+                                val enabled = newValue as Boolean
+                                remotePrefs.edit().putBoolean(key, enabled).apply()
+                                val vibrator = context.getSystemService(VIBRATOR_SERVICE) as Vibrator?
+                                if (vibrator?.hasVibrator() == true) {
+                                    vibrator.vibrate(50)
+                                }
+                                true
                             }
-                            true
+                            recommendedCategory.addPreference(this)
                         }
-                        screen.addPreference(this)
+                    }
+                }
+
+                // 2. Optional / Experimental (Not Recommended) Category
+                if (experimentalPatches.isNotEmpty()) {
+                    val experimentalCategory = PreferenceCategory(context).apply {
+                        title = "Optional / Experimental (Not Recommended)"
+                    }
+                    screen.addPreference(experimentalCategory)
+
+                    for (patchInfo in experimentalPatches.sortedBy { it.name }) {
+                        CheckBoxPreference(context).apply {
+                            key = patchInfo.name
+                            title = "${patchInfo.name}  ⚠️"
+                            summary = "⚠️ Not Recommended: may cause crashes on newer versions.\n${patchInfo.description}"
+                            isChecked = remotePrefs.getBoolean(patchInfo.name, patchInfo.use)
+
+                            setOnPreferenceChangeListener { _, newValue ->
+                                val enabled = newValue as Boolean
+                                remotePrefs.edit().putBoolean(key, enabled).apply()
+                                val vibrator = context.getSystemService(VIBRATOR_SERVICE) as Vibrator?
+                                if (vibrator?.hasVibrator() == true) {
+                                    vibrator.vibrate(50)
+                                }
+                                true
+                            }
+                            experimentalCategory.addPreference(this)
+                        }
                     }
                 }
 
@@ -151,27 +188,35 @@ class AppPatchSettingsActivity : Activity() {
         fun setAllPreferences(prefs: SharedPreferences, enable: Boolean) {
             if (!isAdded) return
             val editor = prefs.edit()
-            for (i in 0 until preferenceScreen.preferenceCount) {
-                val preference = preferenceScreen.getPreference(i)
-                if (preference is CheckBoxPreference) {
-                    preference.isChecked = enable
-                    editor.putBoolean(preference.key, enable)
+            fun updatePref(pref: Preference) {
+                if (pref is CheckBoxPreference) {
+                    pref.isChecked = enable
+                    editor.putBoolean(pref.key, enable)
+                } else if (pref is PreferenceGroup) {
+                    for (i in 0 until pref.preferenceCount) {
+                        updatePref(pref.getPreference(i))
+                    }
                 }
             }
+            updatePref(preferenceScreen)
             editor.apply()
         }
 
-        fun restoreDefaultPreferences(prefs: SharedPreferences,defaultPatchStates: Map<String, Boolean>) {
+        fun restoreDefaultPreferences(prefs: SharedPreferences, defaultPatchStates: Map<String, Boolean>) {
             if (!isAdded) return
             val editor = prefs.edit()
-            for (i in 0 until preferenceScreen.preferenceCount) {
-                val preference = preferenceScreen.getPreference(i)
-                if (preference is CheckBoxPreference) {
-                    preference.isChecked =
-                        defaultPatchStates[preference.key] ?: preference.isChecked
-                    editor.putBoolean(preference.key, preference.isChecked)
+            fun updatePref(pref: Preference) {
+                if (pref is CheckBoxPreference) {
+                    val defaultState = defaultPatchStates[pref.key] ?: pref.isChecked
+                    pref.isChecked = defaultState
+                    editor.putBoolean(pref.key, defaultState)
+                } else if (pref is PreferenceGroup) {
+                    for (i in 0 until pref.preferenceCount) {
+                        updatePref(pref.getPreference(i))
+                    }
                 }
             }
+            updatePref(preferenceScreen)
             editor.apply()
         }
     }

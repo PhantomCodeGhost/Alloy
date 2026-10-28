@@ -30,7 +30,10 @@ val HideSuggestedContent = patch(
         after { param ->
             val item = param.result ?: return@after
             fields.forEach { field ->
-                if (field.declaringClass.isInstance(item)) field.set(item, null)
+                try {
+                    if (field.declaringClass.isInstance(item)) field.set(item, null)
+                } catch (_: Throwable) {
+                }
             }
         }
     }

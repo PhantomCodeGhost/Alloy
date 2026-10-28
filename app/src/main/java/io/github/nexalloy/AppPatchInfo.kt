@@ -1,6 +1,8 @@
 package io.github.nexalloy
 
 import io.github.nexalloy.brave.BravePatches
+import io.github.nexalloy.browzomje.pinterest.PinterestPatches
+import io.github.nexalloy.hoodles.duolingo.DuolingoPatches
 import io.github.nexalloy.hoodles.morphe.alltrails.AllTrailsPatches
 import io.github.nexalloy.morphe.music.YTMusicPatches
 import io.github.nexalloy.morphe.reddit.RedditPatches
@@ -27,6 +29,8 @@ val appPatchConfigurations = listOf(
     AppPatchInfo("Brave Beta", "com.brave.browser_beta", BravePatches),
     AppPatchInfo("Brave Nightly", "com.brave.browser_nightly", BravePatches),
     AppPatchInfo("Spotify", "com.spotify.music", io.github.nexalloy.twoeno.spotify.SpotifyPatches),
+    AppPatchInfo("Pinterest", "com.pinterest", PinterestPatches),
+    AppPatchInfo("Duolingo", "com.duolingo", DuolingoPatches),
 )
 
 val patchesByPackage = appPatchConfigurations.associate { it.packageName to it.patches }

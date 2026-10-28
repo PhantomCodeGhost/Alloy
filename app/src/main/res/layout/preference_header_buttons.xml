@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="12dp"
+    android:gravity="center_vertical">
 
     <Button
         android:id="@+id/button_default"
         style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:text="Default" />
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/button_outline"
+        android:text="Default"
+        android:textAllCaps="false"
+        android:textSize="13sp" />
 
     <Button
         android:id="@+id/button_none"
         style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:text="None" />
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_weight="1"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/button_outline"
+        android:text="None"
+        android:textAllCaps="false"
+        android:textSize="13sp" />
 
     <Button
         android:id="@+id/button_app_info"
         style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="3"
-        android:text="App Info" />
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_weight="1"
+        android:layout_marginStart="3dp"
+        android:background="@drawable/button_outline"
+        android:text="App Info"
+        android:textAllCaps="false"
+        android:textSize="13sp" />
 
-</GridLayout>
+</LinearLayout>
