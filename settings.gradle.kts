@@ -20,7 +20,6 @@ dependencyResolutionManagement {
         }
         google()
         mavenCentral()
-        maven(url = "https://api.xposed.info")
     }
 }
 
@@ -33,6 +32,6 @@ android {
     minSdk = 27
 }
 
-rootProject.name = "NexAlloy"
+rootProject.name = "alloy"
 include(":app")
 include(":stub")

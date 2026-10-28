@@ -25,7 +25,7 @@ android {
     namespace = "io.github.nexalloy"
 
     defaultConfig {
-        applicationId = "io.github.chsbuffer.revancedxposed"
+        applicationId = "com.alloy.phantom"
         versionCode = 111
         versionName = "2.0.$versionCode"
         val patchVersion = Properties().apply {
@@ -159,7 +159,7 @@ dependencies {
     testImplementation(libs.jadx.core)
     testImplementation(libs.slf4j.simple)
     debugImplementation(kotlin("reflect"))
-    compileOnly(libs.xposed)
+    compileOnly(files("${rootProject.rootDir}/libs/api-82.jar"))
     compileOnly(libs.libxposed.api)
     implementation(libs.libxposed.service)
 //    implementation(project(":extensions"))
