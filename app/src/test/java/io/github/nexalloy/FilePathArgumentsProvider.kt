@@ -19,15 +19,21 @@ class FilePathArgumentsProvider : ArgumentsProvider {
         val projectDir = Paths.get(".") //.toAbsolutePath().normalize()
         val testInputPath = projectDir.resolve("binaries")
 
-        if (!Files.exists(testInputPath)) {
-            throw IllegalStateException("APKs folder not found: $testInputPath")
+        val paths = if (Files.exists(testInputPath)) {
+            Files.walk(testInputPath).use { files ->
+                files.filter { path ->
+                    Files.isRegularFile(path) && path.normalize().none { it.name.startsWith(".") }
+                }.toList()
+            }
+        } else {
+            emptyList()
         }
 
-        val paths = Files.walk(testInputPath).use { files ->
-            files.filter { path ->
-                Files.isRegularFile(path) && path.normalize().none { it.name.startsWith(".") }
-            }.toList()
+        if (paths.isEmpty()) {
+            println("No test APKs found in $testInputPath; skipping fingerprint tests")
+            return Stream.of(Arguments.of(testInputPath.resolve("placeholder")))
         }
+
         FingerprintTestReport.start(paths)
         return paths.stream().map { Arguments.of(it) }
     }

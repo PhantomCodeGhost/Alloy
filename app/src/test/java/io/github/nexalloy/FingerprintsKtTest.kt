@@ -24,9 +24,9 @@ import kotlin.io.path.invariantSeparatorsPathString
 @ParameterizedClass
 @ArgumentsSource(FilePathArgumentsProvider::class)
 class FingerprintsKtTest(val apkPath: Path) {
-    val context = contexts.computeIfAbsent(apkPath) { ApkContext(it.toString()) }
-    val dexkit: DexKitBridge = context.dexkit
-    val appVersion: AppVersion = context.appVersion
+    val context: ApkContext get() = contexts.computeIfAbsent(apkPath) { ApkContext(it.toString()) }
+    val dexkit: DexKitBridge get() = context.dexkit
+    val appVersion: AppVersion get() = context.appVersion
 
     // region Test runner
 
