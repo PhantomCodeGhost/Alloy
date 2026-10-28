@@ -153,18 +153,18 @@ class AppPatchSettingsActivity : Activity() {
                     }
                 }
 
-                // 2. Optional / Experimental (Not Recommended) Category
+                // 2. Additional Patches Category
                 if (experimentalPatches.isNotEmpty()) {
-                    val experimentalCategory = PreferenceCategory(context).apply {
-                        title = "Optional / Experimental (Not Recommended)"
+                    val additionalCategory = PreferenceCategory(context).apply {
+                        title = "Additional Patches"
                     }
-                    screen.addPreference(experimentalCategory)
+                    screen.addPreference(additionalCategory)
 
                     for (patchInfo in experimentalPatches.sortedBy { it.name }) {
                         CheckBoxPreference(context).apply {
                             key = patchInfo.name
-                            title = "${patchInfo.name}  ⚠️"
-                            summary = "⚠️ Not Recommended: may cause crashes on newer versions.\n${patchInfo.description}"
+                            title = patchInfo.name
+                            summary = patchInfo.description
                             isChecked = remotePrefs.getBoolean(patchInfo.name, patchInfo.use)
 
                             setOnPreferenceChangeListener { _, newValue ->
@@ -176,7 +176,7 @@ class AppPatchSettingsActivity : Activity() {
                                 }
                                 true
                             }
-                            experimentalCategory.addPreference(this)
+                            additionalCategory.addPreference(this)
                         }
                     }
                 }

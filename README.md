@@ -25,7 +25,6 @@ For best results, download the **recommended APK versions** below (preferably fr
 |:---|:---|:---|:---|:---|
 | **YouTube** | `com.google.android.youtube` | **19.34.42** / **19.43.41** / Latest Stable | NexAlloy / Morphe | Dynamic fingerprints; broadly compatible with stable releases. |
 | **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | NexAlloy / Morphe | Broadly compatible across stable builds. |
-| **Instagram** | `com.instagram.android` | **447.0.0.55.81** (arm64-v8a) | Piko (`crimera`) | **Version-pinned.** Newer releases (v450+) alter feed JSON parsers and ad injection points. |
 | **Brave Browser** | `com.brave.browser`<br>`com.brave.browser_beta`<br>`com.brave.browser_nightly` | **1.92.140** (v1.92.x) | `dh6k` & `bufferk` | **Version-pinned.** Origin subscription profiles change in newer Chromium rebases. Beta/Nightly are experimental. |
 | **Spotify** | `com.spotify.music` | **8.9.18.512** – **8.9.84.594** (v8.9.x) | 2eno (`2eno-patches`) | **Version-pinned.** Spotify 9.0+ uses server-side dynamic ad pipelines that bypass client-side view hooks (causing audio/video ads to still play). Enable *"Device Broadcast Status"* in Spotify settings for audio ad muting. |
 | **Pinterest** | `com.pinterest` | **14.23.0** – **14.39.0** (v14.x) | `browzomje` | **Version-pinned.** Filters sponsored pins, collapses promo views, sanitizes shared links. |
@@ -86,12 +85,6 @@ For best results, download the **recommended APK versions** below (preferably fr
 - **Enable Super / Max features**: Unlocks subscriber features and provides unlimited hearts/energy
 - **Enable debug menu**: Unlocks developer debug settings menu
 - **Unlimited RampUp time**: Sets challenge timer to 3600 seconds
-
-### 📸 Instagram (`com.instagram.android`)
-*(Ported from Piko)*
-- Hide feed ads & sponsored reels
-- Hide suggested content & suggested accounts
-- Sanitize sharing links
 
 ### 🧵 Threads (`com.instagram.barcelona`)
 - Hide ads

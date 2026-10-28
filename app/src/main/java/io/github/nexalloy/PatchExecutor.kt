@@ -203,7 +203,7 @@ class PatchExecutor(
 
         val id = "${packageInfo.lastUpdateTime}-$moduleRel"
         val cachedId = cache.getString("id", null)
-        val isCached = cachedId.equals(id) && !DEBUG
+        val isCached = cachedId.equals(id)
 
         Logger.printInfo { "cache ID : $id" }
         Logger.printInfo { "cached ID: ${cachedId ?: ""}" }
@@ -212,7 +212,6 @@ class PatchExecutor(
         if (!isCached) {
             cache.clearAll()
             cache.putString("id", id)
-            Utils.showToastLong("NexAlloy is initializing, please wait...")
         }
     }
 
@@ -244,11 +243,7 @@ class PatchExecutor(
 
     private fun logDebugInfo() {
         val success = failedPatches.isEmpty()
-        if (DEBUG) {
-            if (success) {
-                Utils.showToastLong("apply patches success")
-            }
-        }
+        Logger.printInfo { "Patches applied: $success, failed: ${failedPatches.size}" }
     }
 
     private fun getAppVersion(): String {

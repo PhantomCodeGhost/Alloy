@@ -11,8 +11,6 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Base Module Framework** | [NexAlloy/NexAlloy](https://github.com/NexAlloy/NexAlloy) | GPL-3.0 | `main` | Android 8.1 – 17 (API 37) | Base fork (`alloy`) |
 | **Morphe Extension Library** | [NexAlloy/morphe-patches-library](https://github.com/NexAlloy/morphe-patches-library) | GPL-3.0 | `nexalloy` | Submodule (`morphe-patches-library`) | Core helpers & bytecode utils |
 | **Morphe Patches Submodule** | [NexAlloy/morphe-patches](https://github.com/NexAlloy/morphe-patches) | GPL-3.0 | `nexalloy` | Various (see Section 2) | Submodule (`morphe-patches`) |
-| **Instagram Patches** | [crimera/piko](https://github.com/crimera/piko) | GPL-3.0 | `master` | **`447.0.0.55.81`** | Ported in `io.github.nexalloy.piko.instagram` |
-| **Instagram Xposed Reference** | [2eno/NexAlloy](https://github.com/2eno/NexAlloy) (Archived) | GPL-3.0 | `main` | `447.0.0.55.81` | Reference port architecture |
 | **Spotify Patches & Extension** | [2eno/morphe-patches](https://github.com/2eno/morphe-patches) / [2eno-patches](https://github.com/2eno/2eno-patches) | GPL-3.0 | `main` | **`8.9.18.512` – `8.9.84.594`** | Submodule (`2eno-patches`), ported in `io.github.nexalloy.twoeno.spotify` |
 | **Brave Origin Patch** | [dh6k/morphe-patches](https://github.com/dh6k/morphe-patches) & [bufferk/morphe-patches](https://github.com/bufferk/morphe-patches) | GPL-3.0 | `main` | **`1.92.140`** | Ported in `io.github.nexalloy.brave` |
 | **Pinterest Patches** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | GPL-3.0 | `main` | **`14.23.0` – `14.39.0`** | Ported in `io.github.nexalloy.browzomje.pinterest` |
@@ -26,7 +24,6 @@ This document tracks all external patch repositories, upstream forks, and submod
 |:---|:---|:---|:---|
 | **YouTube** | `com.google.android.youtube` | `19.34.42` / `19.43.41` / Latest Stable | Dynamic DexKit fingerprints |
 | **YouTube Music** | `com.google.android.apps.youtube.music` | `6.43.52` – `7.25.52` / Latest Stable | Dynamic DexKit fingerprints |
-| **Instagram** | `com.instagram.android` | **`447.0.0.55.81`** (arm64-v8a) | Pinned to Piko releases |
 | **Brave Browser** | `com.brave.browser`<br>`com.brave.browser_beta`<br>`com.brave.browser_nightly` | **`1.92.140`** | Pinned to dh6k / bufferk releases |
 | **Spotify** | `com.spotify.music` | **`8.9.18.512` – `8.9.84.594`** | Pinned to 2eno releases |
 | **Pinterest** | `com.pinterest` | **`14.23.0` – `14.39.0`** | Pinned to browzomje releases |
@@ -43,12 +40,6 @@ This document tracks all external patch repositories, upstream forks, and submod
 ## 3. How to Update Patches for Newer App Versions
 
 When an upstream patch repo releases support for a new version:
-
-### 1. Instagram (`crimera/piko`)
-1. Check `crimera/piko` repo for updated fingerprint queries in `patches/src/main/kotlin/crimera/patches/instagram/`.
-2. Update corresponding fingerprints in `app/src/main/java/io/github/nexalloy/piko/instagram/Fingerprints.kt`.
-3. Test using target APK from APKMirror.
-4. Update the recommended version in `README.md` and this tracker.
 
 ### 2. Brave (`dh6k/morphe-patches` / `bufferk/morphe-patches`)
 1. Compare `BraveOriginPatch` in `dh6k/morphe-patches` against new Brave Chromium releases.
