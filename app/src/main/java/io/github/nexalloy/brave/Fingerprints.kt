@@ -1,55 +1,58 @@
 package io.github.nexalloy.brave
 
-import io.github.nexalloy.morphe.findMethodDirect
-import io.github.nexalloy.morphe.strings
+import io.github.nexalloy.morphe.findMethodListDirect
 import org.luckypray.dexkit.query.enums.StringMatchType
 
-val subscriptionActiveFingerprint = findMethodDirect {
+val subscriptionActiveFingerprint = findMethodListDirect {
     findMethod {
         matcher {
             returnType("Z")
-            paramTypes("org.chromium.chrome.browser.profiles.Profile")
-            strings("getIsSubscriptionActive profile is null", "brave.origin.subscription_active_android")
+            usingStrings(listOf("brave.origin.subscription_active_android"), StringMatchType.Contains)
         }
-    }.single()
+    }
 }
 
-val validSubscriptionTokensFingerprint = findMethodDirect {
+val validSubscriptionTokensFingerprint = findMethodListDirect {
     findMethod {
         matcher {
             returnType("Z")
-            paramTypes("org.chromium.chrome.browser.profiles.Profile")
-            strings("brave.origin.order_id_android", "brave.origin.purchase_token_android")
+            usingStrings(listOf("brave.origin.order_id_android", "brave.origin.purchase_token_android"), StringMatchType.Contains)
         }
-    }.single()
+    }
 }
 
-val credentialSummaryCachedFingerprint = findMethodDirect {
+val credentialSummaryCachedFingerprint = findMethodListDirect {
     findMethod {
         matcher {
             returnType("Z")
-            paramCount(0)
-            strings("brave_origin_credential_summary_cached")
+            usingStrings(listOf("brave_origin_credential_summary_cached"), StringMatchType.Contains)
         }
-    }.single()
+    }
 }
 
-val requestCredentialSummaryFingerprint = findMethodDirect {
+val requestCredentialSummaryFingerprint = findMethodListDirect {
     findMethod {
         matcher {
             returnType("V")
-            paramTypes("org.chromium.chrome.browser.profiles.Profile", "org.chromium.base.Callback")
-            strings("requestCredentialSummary profile is null", "SkusService is null, cannot request credential summary")
+            usingStrings(listOf("SkusService is null, cannot request credential summary"), StringMatchType.Contains)
         }
-    }.single()
+    }
 }
 
-val showOriginSettingsForRestartFingerprint = findMethodDirect {
+val showOriginSettingsForRestartFingerprint = findMethodListDirect {
     findMethod {
         matcher {
             name("showOriginSettingsForRestart")
             returnType("V")
-            paramCount(0)
         }
-    }.first()
+    }
+}
+
+val featurePolicyGatekeepersFingerprint = findMethodListDirect {
+    findMethod {
+        matcher {
+            returnType("Z")
+            usingStrings(listOf("disabled_by_policy"), StringMatchType.Contains)
+        }
+    }
 }
