@@ -1,0 +1,29 @@
+Alloy
+Copyright (C) 2026 Alloy Contributors
+
+This project is a fork of NexAlloy by ChsBuffer (GPL-3.0).
+https://github.com/NexAlloy/NexAlloy
+
+================================================================
+
+Instagram patches ported from Piko:
+Copyright (C) crimera (GPL-3.0)
+https://github.com/crimera/piko
+
+Reference Xposed port from 2eno:
+Copyright (C) 2eno (GPL-3.0)
+https://github.com/2eno/NexAlloy
+
+================================================================
+
+Brave Origin patch ported from:
+- bufferk/morphe-patches: Copyright (C) bufferk (GPL-3.0)
+  https://github.com/bufferk/morphe-patches
+- dh6k/morphe-patches: Copyright (C) dh6k (GPL-3.0)
+  https://github.com/dh6k/morphe-patches
+
+================================================================
+
+Spotify patches ported from:
+- 2eno/morphe-patches: Copyright (C) 2eno (GPL-3.0)
+  https://github.com/2eno/morphe-patches

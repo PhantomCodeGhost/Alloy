@@ -305,6 +305,9 @@ class PatchExecutor(
     val KProperty0<FindFieldFunc>.field
         get() = dexField.toField()
 
+    val KProperty0<FindFieldListFunc>.dexFieldList
+        get() = getDexFields(this.name, this.get())
+
     val KProperty0<FindFieldListFunc>.fieldList
         get() = dexkit.getFieldsDirect(this.name, wrapFindList(this.name, this.get()) { it.descriptor })
             .map { it.toField() }
@@ -393,6 +396,11 @@ class PatchExecutor(
     private inline fun getDexMethods(
         key: String, crossinline findFunc: DexKitBridge.() -> List<MethodData>
     ): List<DexMethod> = dexkit.getMethodsDirectOrEmpty(
+        key, wrapFindList(key, findFunc) { it.descriptor })
+
+    private inline fun getDexFields(
+        key: String, crossinline findFunc: DexKitBridge.() -> List<FieldData>
+    ): List<DexField> = dexkit.getFieldsDirect(
         key, wrapFindList(key, findFunc) { it.descriptor })
 }
 
