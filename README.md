@@ -1,37 +1,28 @@
-<div align="center">
-  <h1>Alloy</h1>
-  <p><strong>LSPosed / Vector module for runtime app modifications</strong></p>
-  <p>Package ID: <code>com.alloy.phantom</code> | Target Platform: Android 8.1 – Android 17 (API 37)</p>
-</div>
+# Alloy
+
+Alloy (`com.alloy.phantom`) is an unofficial LSPosed Xposed module that applies runtime DexKit hooks directly to target apps without needing APK repacking or re-signing.
 
 ---
 
-**Alloy** is an open-source LSPosed runtime hook module (forked from NexAlloy, based on DexKit and libxposed API 101). It modifies supported apps at runtime without touching or resigning the original APKs.
+## ⚠️ Important: Recommended Versions & Compatibility
 
-> [!IMPORTANT]  
-> - **Root access** and **LSPosed** or **Vector** (maintained LSPosed fork) are **strictly required**.
-> - This project is an independent community fork and is **not affiliated with Morphe, ReVanced, or the original app developers**.
-> - Android 17 (API 37) SDK is fully supported.
-
----
-
-## 📌 Recommended & Supported APK Versions
-
-DexKit hooks target methods at runtime using structural bytecode fingerprints. When an app updates past its supported version, obfuscation and internal class structures change, which causes the module to show **"error while applying following patches"** or allows ads to bypass the hook.
+> [!IMPORTANT]
+> **Why versions matter:**
+> DexKit hooks target methods at runtime using structural bytecode fingerprints. When an app updates past its supported version, obfuscation and internal class structures change, which causes the module to show **"error while applying following patches"** or allows ads to bypass the hook.
 
 For best results, download the **recommended APK versions** below (preferably from trusted repositories like [APKMirror](https://www.apkmirror.com/)) and **disable auto-updates in Google Play Store** for patched apps:
 
 | App | Package ID | Tested / Recommended Version | Patch Source | Compatibility Notes |
 |:---|:---|:---|:---|:---|
-| **YouTube** | `com.google.android.youtube` | **19.34.42** / **19.43.41** / Latest Stable | NexAlloy / Morphe | Dynamic fingerprints; broadly compatible with stable releases. |
-| **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | NexAlloy / Morphe | Broadly compatible across stable builds. |
-| **Brave Browser** | `com.brave.browser`<br>`com.brave.browser_beta`<br>`com.brave.browser_nightly` | **1.92.140** (v1.92.x) | `dh6k` & `bufferk` | **Version-pinned.** Origin subscription profiles change in newer Chromium rebases. Beta/Nightly are experimental. |
-| **Spotify** | `com.spotify.music` | **8.9.18.512** – **8.9.84.594** (v8.9.x) | 2eno (`2eno-patches`) | **Version-pinned.** Spotify 9.0+ uses server-side dynamic ad pipelines that bypass client-side view hooks (causing audio/video ads to still play). Enable *"Device Broadcast Status"* in Spotify settings for audio ad muting. |
-| **Pinterest** | `com.pinterest` | **14.23.0** – **14.39.0** (v14.x) | `browzomje` | **Version-pinned.** Filters sponsored pins, collapses promo views, sanitizes shared links. |
-| **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | **Version-pinned.** Unlocks Super subscriber features, unlimited hearts/energy, debug menu, rampup time. |
-| **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2024.40.0** / Latest Stable | NexAlloy / Morphe | Compatible with recent stable versions. |
+| **YouTube** | `com.google.android.youtube` | **19.34.42** / **19.43.41** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Dynamic fingerprints; broadly compatible with stable releases. |
+| **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Broadly compatible across stable builds. |
+| **Spotify** | `com.spotify.music` | **8.9.18.512** – **8.9.84.594** (v8.9.x – 9.1.x) | 2eno (`2eno-patches`) | Dynamic ad view suppression & audio muting. Enable *"Device Broadcast Status"* in Spotify settings for optimal ad muting. |
+| **CapCut** | `com.lemon.lvoverseas` | **9.0.0** (v9.x) | `riky-dev` (`riky-dev/morphe-patches`) | Unlocks VIP features and bypasses Shark WAF effect/transition region restriction block. |
+| **Pinterest** | `com.pinterest` | **14.23.0** – **14.39.0** (v14.x) | `browzomje` | Filters sponsored pins, collapses promo views, sanitizes shared links. |
+| **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | Unlocks Super subscriber features, unlimited hearts/energy, debug menu, rampup time. |
+| **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2026.45.0** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Compatible with recent stable versions. |
 | **Threads** | `com.instagram.barcelona` | **340.0.0.32.108** / **350.x** | NexAlloy / Meta | Stable across 340.x - 350.x. |
-| **Google Photos** | `com.google.android.apps.photos` | **Any Recent Stable** | NexAlloy / ReVanced | Pixel XL device spoofing is version-independent. |
+| **Google Photos** | `com.google.android.apps.photos` | **Any Recent Stable** | ReVanced | Pixel XL device spoofing is version-independent. |
 | **Photomath** | `com.microblink.photomath` | **8.30.0** – **8.32.0** | NexAlloy | Plus subscription unlock. |
 | **Strava** | `com.strava` | **360.10** – **370.x** | NexAlloy | Subscription feature unlock. |
 | **AllTrails** | `com.alltrails.alltrails` | **18.15.0** – **19.x** | NexAlloy | Peak membership enable. |
@@ -60,9 +51,6 @@ For best results, download the **recommended APK versions** below (preferably fr
 - Hide upgrade buttons & premium prompts
 - Exclusive audio playback
 
-### 🦁 Brave Browser (`com.brave.browser`, `com.brave.browser_beta`, `com.brave.browser_nightly`)
-- **Brave Origin**: Unlocks Brave Origin and enables internal feature toggle controls
-
 ### 🎧 Spotify (`com.spotify.music`)
 *(Ad-blocking & anti-tracking only — no Premium unlock)*
 - Block popup ads
@@ -73,6 +61,11 @@ For best results, download the **recommended APK versions** below (preferably fr
 - Mute audio ads *(works best when "Device Broadcast Status" is enabled in Spotify settings)*
 - Fix third-party launcher widgets
 - Sanitize sharing links
+
+### 🎬 CapCut (`com.lemon.lvoverseas`)
+*(Ported from riky-dev)*
+- **Unlock Premium**: Forces CapCut VIP gates to true (VipSubscribeManager, SubscribeImpl, UserVipInfo, benefits)
+- **Bypass effects region restriction**: Spoofs `device_platform` from `"android"` to `"windows"` and `deviceId` to `"0"` in effect API requests to bypass ByteDance Shark WAF blocks ("No internet connection")
 
 ### 📌 Pinterest (`com.pinterest`)
 *(Ported from browzomje)*
@@ -129,12 +122,12 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 ## 📜 Credits & Acknowledgments
 
 - **NexAlloy** by ChsBuffer: Original base project (GPL-3.0)
+- **MorpheApp**: Upstream Morphe patches repository and extension library
 - **DexKit** by LuckyPray: High-performance runtime dex parsing library
-- **Piko** by crimera: Instagram patch logic and fingerprints
 - **2eno**: Spotify patch implementations and reference Xposed port
+- **riky-dev**: CapCut VIP unlock and Shark WAF bypass logic
 - **browzomje**: Pinterest patch logic and ad detection
 - **hoo-dles**: Duolingo subscriber & debug patch logic
-- **bufferk** & **dh6k**: Brave Origin patch implementations
 - **Morphe** & **ReVanced**: Bytecode patch libraries and inspiration
 
 ## ⚖️ License

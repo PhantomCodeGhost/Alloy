@@ -28,11 +28,13 @@ val contextMenuViewModelClass = findClassDirect {
  * The context menu item view model is `ViewModel(available, enabled, isPremiumUpsell, ...)`.
  */
 val premiumUpsellField = findFieldDirect {
-    val viewModelClass = findMethod {
+    val methods = findMethod {
         findFirst = true
         matcher { name = "getViewModel" }
-    }.single().returnType!!
-    viewModelClass.fields.filter { it.typeName == "boolean" }[1]
+    }
+    val returnType = methods.firstOrNull()?.returnType ?: throw NoSuchElementException("getViewModel not found")
+    val booleans = returnType.fields.filter { it.typeName == "boolean" }
+    if (booleans.size > 1) booleans[1] else booleans.firstOrNull() ?: throw NoSuchElementException("premiumUpsellField not found")
 }
 
 private fun DexKitBridge.sectionsGetters(structureClass: String) = findClass {
@@ -40,8 +42,10 @@ private fun DexKitBridge.sectionsGetters(structureClass: String) = findClass {
 }.findMethod {
     matcher {
         returnType = "java.util.List"
-        addUsingField { name("sections_") }
     }
+}.filter { method ->
+    method.usingFields.any { it.field.name.contains("section", ignoreCase = true) } ||
+        method.name.contains("section", ignoreCase = true)
 }
 
 val casitaHomeSectionsGetters = findMethodListDirect { sectionsGetters("casita.v1.resolved.HomeStructure") }
@@ -65,11 +69,12 @@ val pendragonRequestMethods = findMethodListDirect {
 }
 
 val embeddedAdPlaylistPropertiesConstructor = findMethodDirect {
-    findClass {
+    val classes = findClass {
         matcher { usingStrings("android-embeddedadplaylist", "embedded_ad_placement") }
-    }.single().findMethod {
+    }
+    classes.firstOrNull()?.findMethod {
         matcher { name = "<init>" }
-    }.single { it.paramCount > 2 }
+    }?.firstOrNull { it.paramCount > 2 } ?: throw NoSuchElementException("embeddedAdPlaylistPropertiesConstructor not found")
 }
 
 /**

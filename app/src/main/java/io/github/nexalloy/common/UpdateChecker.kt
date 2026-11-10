@@ -128,7 +128,13 @@ class UpdateChecker(private val checkBetaUpdates: () -> Boolean = { false }) : C
                     headers = mapOf("Accept" to "application/vnd.github.html+json")
                 )
                 if (response.statusCode != 200) {
-                    Logger.printException { "Failed to fetch latest release: HTTP ${response.statusCode}" }
+                    if (response.statusCode == 404) {
+                        Logger.printInfo { "No release found on GitHub (HTTP 404)" }
+                        if (!silent) Utils.showToastLong("No releases published yet on repository.")
+                    } else {
+                        Logger.printInfo { "Failed to fetch latest release: HTTP ${response.statusCode}" }
+                        if (!silent) Utils.showToastLong("Failed to check update: HTTP ${response.statusCode}")
+                    }
                     return@launch
                 }
 

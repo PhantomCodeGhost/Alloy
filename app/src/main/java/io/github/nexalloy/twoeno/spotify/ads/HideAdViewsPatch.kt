@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import app.twoeno.extension.spotify.HideAdViewsPatch
 import de.robv.android.xposed.XposedHelpers
 import io.github.nexalloy.hookMethod
@@ -11,13 +12,18 @@ import io.github.nexalloy.patch
 import java.util.Locale
 
 private val AD_CLASS_NAME_MARKERS = arrayOf(
-    "adsinternal", "brandad", "videoad", "audioad", "adslot", "countdownbar", "displayad", "hpto", "slate", "sponsored"
+    "adsinternal", "brandad", "videoad", "audioad", "adslot", "countdownbar", "displayad",
+    "hpto", "slate", "sponsored", "billboard", "adbanner", "adoverlay", "adview", "partnerad",
+    "sponsoredcontent", "nativead", "adcontainer", "upsellcard", "premiumheader"
 )
 private val AD_RESOURCE_NAME_MARKERS = arrayOf(
-    "audio_ad", "video_ad", "banner_ad", "ad_nudge", "brand_ad", "ad_banner", "hpto", "slate", "sponsor"
+    "audio_ad", "video_ad", "banner_ad", "ad_nudge", "brand_ad", "ad_banner", "hpto", "slate",
+    "sponsor", "sponsored", "ad_slot", "ad_overlay", "billboard", "promo_banner", "ad_container",
+    "ad_view", "ad_break", "native_ad", "commercial", "leaderboard", "ad_item", "ad_card",
+    "upsell_card", "sponsored_item", "sponsored_card", "sponsored_playlist"
 )
 private val AD_DESCRIPTION_MARKERS = arrayOf(
-    "advertisement", "werbung", "sponsored", "sponsored content"
+    "advertisement", "werbung", "sponsored", "sponsored content", "publicité", "anuncio", "patrocinado"
 )
 
 private fun isAdView(view: View): Boolean {
@@ -34,7 +40,23 @@ private fun isAdView(view: View): Boolean {
     if (AD_RESOURCE_NAME_MARKERS.any { resourceName.contains(it) }) return true
 
     val description = view.contentDescription?.toString()?.lowercase(Locale.ROOT) ?: ""
-    return description == "ad" || AD_DESCRIPTION_MARKERS.any { description.contains(it) }
+    if (description == "ad" || AD_DESCRIPTION_MARKERS.any { description.contains(it) }) return true
+
+    val tag = view.tag?.toString()?.lowercase(Locale.ROOT) ?: ""
+    if (tag == "ad" || tag == "sponsored" || tag.contains("banner_ad") || tag.contains("hpto")) return true
+
+    if (view is TextView) {
+        val text = view.text?.toString()?.trim()?.lowercase(Locale.ROOT) ?: ""
+        if (text == "ad" || text == "sponsored" || text == "werbung" || text == "advertisement") {
+            val parent = view.parent
+            if (parent is ViewGroup && parent !is android.widget.ScrollView) {
+                HideAdViewsPatch.hideView(parent)
+            }
+            return true
+        }
+    }
+
+    return false
 }
 
 private fun hideAdViewsRecursively(root: View) {
@@ -83,7 +105,7 @@ val HideAdViews = patch(
         }
     }
 
-    // Ad views not covered by the known classes are found by their class, resource and content description names.
+    // Ad views in activity view hierarchy
     Activity::class.java.getDeclaredMethod("onPostResume").hookMethod {
         after { param ->
             val decorView = (param.thisObject as Activity).window?.decorView ?: return@after
@@ -94,6 +116,11 @@ val HideAdViews = patch(
         after { param ->
             val decorView = (param.thisObject as Activity).window?.decorView ?: return@after
             decorView.post { hideAdViewsRecursively(decorView) }
+            runCatching {
+                decorView.viewTreeObserver?.addOnGlobalLayoutListener {
+                    hideAdViewsRecursively(decorView)
+                }
+            }
         }
     }
 }

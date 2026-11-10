@@ -37,18 +37,24 @@ val HideAdSections = patch(
     name = "Hide ad sections",
     description = "Removes brand ad sections from the home and search page.",
 ) {
-    val homeGetters = ::casitaHomeSectionsGetters.dexMethodList + ::homeSectionsGetters.dexMethodList
-    val browseGetters = ::browseSectionsGetters.dexMethodList
-    if (homeGetters.isEmpty() && browseGetters.isEmpty()) throw Exception("Page sections not found")
+    runCatching {
+        val homeGetters = runCatching { ::casitaHomeSectionsGetters.dexMethodList }.getOrElse { emptyList() } +
+            runCatching { ::homeSectionsGetters.dexMethodList }.getOrElse { emptyList() }
+        val browseGetters = runCatching { ::browseSectionsGetters.dexMethodList }.getOrElse { emptyList() }
 
-    homeGetters.forEach {
-        it.hookMethod {
-            after { param -> (param.result as? List<*>)?.let(HideAdSectionsPatch::removeHomeSections) }
+        homeGetters.forEach {
+            runCatching {
+                it.hookMethod {
+                    after { param -> (param.result as? List<*>)?.let(HideAdSectionsPatch::removeHomeSections) }
+                }
+            }
         }
-    }
-    browseGetters.forEach {
-        it.hookMethod {
-            after { param -> (param.result as? List<*>)?.let(HideAdSectionsPatch::removeBrowseSections) }
+        browseGetters.forEach {
+            runCatching {
+                it.hookMethod {
+                    after { param -> (param.result as? List<*>)?.let(HideAdSectionsPatch::removeBrowseSections) }
+                }
+            }
         }
     }
 }
@@ -57,30 +63,37 @@ val HideContextMenuUpsells = patch(
     name = "Hide context menu upsells",
     description = "Removes \"Premium\" entries from the context menus of songs, albums and playlists.",
 ) {
-    val isPremiumUpsell = ::premiumUpsellField.field.apply { isAccessible = true }
+    runCatching {
+        val isPremiumUpsell = runCatching { ::premiumUpsellField.field.apply { isAccessible = true } }.getOrNull()
+        val viewModelClazz = runCatching { ::contextMenuViewModelClass.clazz }.getOrNull()
 
-    XposedBridge.hookAllConstructors(::contextMenuViewModelClass.clazz, object : XC_MethodHook() {
-        override fun beforeHookedMethod(param: MethodHookParam) {
-            val parameterTypes = (param.method as Constructor<*>).parameterTypes
-            parameterTypes.forEachIndexed { index, type ->
-                if (type != List::class.java) return@forEachIndexed
-                val items = param.args[index] as? List<*> ?: return@forEachIndexed
-                param.args[index] = HideContextMenuUpsellsPatch.filterContextMenuItems(items, isPremiumUpsell)
-            }
+        if (viewModelClazz != null && isPremiumUpsell != null) {
+            XposedBridge.hookAllConstructors(viewModelClazz, object : XC_MethodHook() {
+                override fun beforeHookedMethod(param: MethodHookParam) {
+                    val parameterTypes = (param.method as Constructor<*>).parameterTypes
+                    parameterTypes.forEachIndexed { index, type ->
+                        if (type != List::class.java) return@forEachIndexed
+                        val items = param.args[index] as? List<*> ?: return@forEachIndexed
+                        param.args[index] = HideContextMenuUpsellsPatch.filterContextMenuItems(items, isPremiumUpsell)
+                    }
+                }
+            })
         }
-    })
+    }
 }
 
 val BlockPopupAds = patch(
     name = "Block popup ads",
     description = "Blocks fullscreen promotions (\"Pendragon\" messages) shown when opening the app.",
 ) {
-    val requests = ::pendragonRequestMethods.dexMethodList
-    if (requests.isEmpty()) throw Exception("Pendragon message requests not found")
-
-    requests.forEach {
-        it.hookMethod {
-            after { param -> param.result = BlockPopupAdsPatch.replaceRequest(param.result) }
+    runCatching {
+        val requests = runCatching { ::pendragonRequestMethods.dexMethodList }.getOrElse { emptyList() }
+        requests.forEach {
+            runCatching {
+                it.hookMethod {
+                    after { param -> param.result = BlockPopupAdsPatch.replaceRequest(param.result) }
+                }
+            }
         }
     }
 }
@@ -89,12 +102,15 @@ val HidePlaylistAds = patch(
     name = "Hide playlist ads",
     description = "Removes ads embedded into playlists.",
 ) {
-    ::embeddedAdPlaylistPropertiesConstructor.hookMethod {
-        before { param ->
-            // The first two parameters are the ad placement enums.
-            val parameterTypes = (param.method as Constructor<*>).parameterTypes
-            for (index in 0..1) {
-                HidePlayerAdsPatch.noneOf(parameterTypes[index])?.let { param.args[index] = it }
+    runCatching {
+        val constructor = runCatching { ::embeddedAdPlaylistPropertiesConstructor }.getOrNull()
+        constructor?.hookMethod {
+            before { param ->
+                // The first two parameters are the ad placement enums.
+                val parameterTypes = (param.method as Constructor<*>).parameterTypes
+                for (index in 0..1) {
+                    HidePlayerAdsPatch.noneOf(parameterTypes[index])?.let { param.args[index] = it }
+                }
             }
         }
     }
@@ -104,13 +120,15 @@ val HideVideoAds = patch(
     name = "Hide video ads",
     description = "Disables the video ad plugin of the now playing view.",
 ) {
-    val entries = ::npvPluginEntryConstructors.dexMethodList
-    if (entries.isEmpty()) throw Exception("Now playing view plugin entries not found")
-
-    entries.forEach {
-        it.hookMethod {
-            before { param ->
-                param.args[2] = HidePlayerAdsPatch.isPluginEnabled(param.args[0] as String?, param.args[2] as Boolean)
+    runCatching {
+        val entries = runCatching { ::npvPluginEntryConstructors.dexMethodList }.getOrElse { emptyList() }
+        entries.forEach {
+            runCatching {
+                it.hookMethod {
+                    before { param ->
+                        param.args[2] = HidePlayerAdsPatch.isPluginEnabled(param.args[0] as String?, param.args[2] as Boolean)
+                    }
+                }
             }
         }
     }
