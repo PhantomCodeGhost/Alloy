@@ -10,7 +10,6 @@ import io.github.nexalloy.revanced.googlephotos.GooglePhotosPatches
 import io.github.nexalloy.revanced.meta.MetaPatches
 import io.github.nexalloy.revanced.photomath.PhotomathPatches
 import io.github.nexalloy.revanced.strava.StravaPatches
-import io.github.nexalloy.riky.capcut.CapCutPatches
 
 class AppPatchInfo(val appName: String, val packageName: String, val patches: Array<Patch>)
 
@@ -26,7 +25,6 @@ val appPatchConfigurations = listOf(
     AppPatchInfo("Spotify", "com.spotify.music", io.github.nexalloy.twoeno.spotify.SpotifyPatches),
     AppPatchInfo("Pinterest", "com.pinterest", PinterestPatches),
     AppPatchInfo("Duolingo", "com.duolingo", DuolingoPatches),
-    AppPatchInfo("CapCut", "com.lemon.lvoverseas", CapCutPatches),
 )
 
 val patchesByPackage = appPatchConfigurations.associate { it.packageName to it.patches }

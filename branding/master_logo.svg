@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Vibrant Blue Ribbon Gradient: Cobalt -> Royal Blue -> Deep Indigo -->
+    <linearGradient id="blueRibbonGrad" x1="278" y1="278" x2="745" y2="745" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="28%" stop-color="#2563EB" />
+      <stop offset="68%" stop-color="#1D4ED8" />
+      <stop offset="100%" stop-color="#1E3A8A" />
+    </linearGradient>
+
+    <!-- Vibrant Purple Ribbon Gradient: Orchid -> Magenta -> Deep Violet -->
+    <linearGradient id="purpleRibbonGrad" x1="278" y1="745" x2="745" y2="278" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4C1D95" />
+      <stop offset="32%" stop-color="#7C3AED" />
+      <stop offset="70%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#C084FC" />
+    </linearGradient>
+
+    <!-- Inner Rim Sheen Highlights -->
+    <linearGradient id="blueRimSheen" x1="278" y1="278" x2="745" y2="745" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BAE6FD" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="purpleRimSheen" x1="278" y1="745" x2="745" y2="278" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#DDD6FE" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#A855F7" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#F5D0FE" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Subtle Depth Ambient Shadows for Intersections -->
+    <radialGradient id="topCrossingShadow" cx="512" cy="375" r="90" fx="512" fy="370" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020617" stop-opacity="0.45" />
+      <stop offset="55%" stop-color="#020617" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#020617" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bottomCrossingShadow" cx="512" cy="650" r="90" fx="512" fy="645" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020617" stop-opacity="0.45" />
+      <stop offset="55%" stop-color="#020617" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#020617" stop-opacity="0" />
+    </radialGradient>
+
+    <clipPath id="clipBottomCrossing">
+      <path d="M 377.00 650.00 C 377.00 575.44 437.44 515.00 512.00 515.00 C 586.56 515.00 647.00 575.44 647.00 650.00 C 647.00 724.56 586.56 785.00 512.00 785.00 C 437.44 785.00 377.00 724.56 377.00 650.00 Z " />
+    </clipPath>
+  </defs>
+
+  <!-- 1. Blue Ribbon (Bottom Layer) -->
+  <path d="M 745.35 745.35 C 690.67 800.02 541.88 739.87 413.01 610.99 C 284.13 482.12 223.98 333.33 278.65 278.65 C 333.33 223.98 482.12 284.13 610.99 413.01 C 739.87 541.88 800.02 690.67 745.35 745.35 Z M 688.78 688.78 C 712.21 665.35 652.06 567.20 554.43 469.57 C 456.80 371.94 358.65 311.79 335.22 335.22 C 311.79 358.65 371.94 456.80 469.57 554.43 C 567.20 652.06 665.35 712.21 688.78 688.78 Z " fill="url(#blueRibbonGrad)" fill-rule="evenodd" />
+  <path d="M 688.78 688.78 C 665.35 712.21 567.20 652.06 469.57 554.43 C 371.94 456.80 311.79 358.65 335.22 335.22 C 358.65 311.79 456.80 371.94 554.43 469.57 C 652.06 567.20 712.21 665.35 688.78 688.78 Z " fill="none" stroke="url(#blueRimSheen)" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- 2. Ambient Shadow under Top Crossover (Purple over Blue) -->
+  <ellipse cx="512" cy="375" rx="85" ry="34" fill="url(#topCrossingShadow)" />
+
+  <!-- 3. Purple Ribbon (Middle Layer) -->
+  <path d="M 745.35 278.65 C 800.02 333.33 739.87 482.12 610.99 610.99 C 482.12 739.87 333.33 800.02 278.65 745.35 C 223.98 690.67 284.13 541.88 413.01 413.01 C 541.88 284.13 690.67 223.98 745.35 278.65 Z M 688.78 335.22 C 665.35 311.79 567.20 371.94 469.57 469.57 C 371.94 567.20 311.79 665.35 335.22 688.78 C 358.65 712.21 456.80 652.06 554.43 554.43 C 652.06 456.80 712.21 358.65 688.78 335.22 Z " fill="url(#purpleRibbonGrad)" fill-rule="evenodd" />
+  <path d="M 688.78 335.22 C 712.21 358.65 652.06 456.80 554.43 554.43 C 456.80 652.06 358.65 712.21 335.22 688.78 C 311.79 665.35 371.94 567.20 469.57 469.57 C 567.20 371.94 665.35 311.79 688.78 335.22 Z " fill="none" stroke="url(#purpleRimSheen)" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- 4. Ambient Shadow under Bottom Crossover (Blue over Purple) -->
+  <ellipse cx="512" cy="650" rx="85" ry="34" fill="url(#bottomCrossingShadow)" />
+
+  <!-- 5. Blue Ribbon Crossover Segment (Top Layer at Bottom Crossing) -->
+  <g clip-path="url(#clipBottomCrossing)">
+    <path d="M 745.35 745.35 C 690.67 800.02 541.88 739.87 413.01 610.99 C 284.13 482.12 223.98 333.33 278.65 278.65 C 333.33 223.98 482.12 284.13 610.99 413.01 C 739.87 541.88 800.02 690.67 745.35 745.35 Z M 688.78 688.78 C 712.21 665.35 652.06 567.20 554.43 469.57 C 456.80 371.94 358.65 311.79 335.22 335.22 C 311.79 358.65 371.94 456.80 469.57 554.43 C 567.20 652.06 665.35 712.21 688.78 688.78 Z " fill="url(#blueRibbonGrad)" fill-rule="evenodd" />
+    <path d="M 688.78 688.78 C 665.35 712.21 567.20 652.06 469.57 554.43 C 371.94 456.80 311.79 358.65 335.22 335.22 C 358.65 311.79 456.80 371.94 554.43 469.57 C 652.06 567.20 712.21 665.35 688.78 688.78 Z " fill="none" stroke="url(#blueRimSheen)" stroke-width="4.5" stroke-linecap="round" />
+  </g>
+</svg>

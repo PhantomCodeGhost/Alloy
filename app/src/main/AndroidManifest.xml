@@ -18,12 +18,12 @@
         <package android:name="com.spotify.music" />
         <package android:name="com.pinterest" />
         <package android:name="com.duolingo" />
-        <package android:name="com.lemon.lvoverseas" />
     </queries>
 
     <application
         android:name=".activity.SettingApplication"
         android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MainTheme"

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="branding/master_logo.svg" width="128" height="128" alt="Alloy Logo" />
+</p>
+
 # Alloy
 
 Alloy (`com.alloy.phantom`) is an unofficial LSPosed Xposed module that applies runtime DexKit hooks directly to target apps without needing APK repacking or re-signing.
@@ -17,7 +21,6 @@ For best results, download the **recommended APK versions** below (preferably fr
 | **YouTube** | `com.google.android.youtube` | **19.34.42** / **19.43.41** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Dynamic fingerprints; broadly compatible with stable releases. |
 | **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Broadly compatible across stable builds. |
 | **Spotify** | `com.spotify.music` | **8.9.18.512** – **8.9.84.594** (v8.9.x – 9.1.x) | 2eno (`2eno-patches`) | Dynamic ad view suppression & audio muting. Enable *"Device Broadcast Status"* in Spotify settings for optimal ad muting. |
-| **CapCut** | `com.lemon.lvoverseas` | **9.0.0** (v9.x) | `riky-dev` (`riky-dev/morphe-patches`) | Unlocks VIP features and bypasses Shark WAF effect/transition region restriction block. |
 | **Pinterest** | `com.pinterest` | **14.23.0** – **14.39.0** (v14.x) | `browzomje` | Filters sponsored pins, collapses promo views, sanitizes shared links. |
 | **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | Unlocks Super subscriber features, unlimited hearts/energy, debug menu, rampup time. |
 | **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2026.45.0** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Compatible with recent stable versions. |
@@ -61,11 +64,6 @@ For best results, download the **recommended APK versions** below (preferably fr
 - Mute audio ads *(works best when "Device Broadcast Status" is enabled in Spotify settings)*
 - Fix third-party launcher widgets
 - Sanitize sharing links
-
-### 🎬 CapCut (`com.lemon.lvoverseas`)
-*(Ported from riky-dev)*
-- **Unlock Premium**: Forces CapCut VIP gates to true (VipSubscribeManager, SubscribeImpl, UserVipInfo, benefits)
-- **Bypass effects region restriction**: Spoofs `device_platform` from `"android"` to `"windows"` and `deviceId` to `"0"` in effect API requests to bypass ByteDance Shark WAF blocks ("No internet connection")
 
 ### 📌 Pinterest (`com.pinterest`)
 *(Ported from browzomje)*
@@ -125,7 +123,6 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 - **MorpheApp**: Upstream Morphe patches repository and extension library
 - **DexKit** by LuckyPray: High-performance runtime dex parsing library
 - **2eno**: Spotify patch implementations and reference Xposed port
-- **riky-dev**: CapCut VIP unlock and Shark WAF bypass logic
 - **browzomje**: Pinterest patch logic and ad detection
 - **hoo-dles**: Duolingo subscriber & debug patch logic
 - **Morphe** & **ReVanced**: Bytecode patch libraries and inspiration
