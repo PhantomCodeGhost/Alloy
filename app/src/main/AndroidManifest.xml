@@ -18,6 +18,16 @@
         <package android:name="com.spotify.music" />
         <package android:name="com.pinterest" />
         <package android:name="com.duolingo" />
+        <package android:name="net.sjava.officereader" />
+        <package android:name="com.utorrent.client" />
+        <package android:name="diozz.cubex" />
+        <package android:name="com.cronometer.android.gold" />
+        <package android:name="com.aidetector.app" />
+        <package android:name="eu.darken.sdmse" />
+        <package android:name="com.mixapplications.rufus" />
+        <package android:name="com.mark0ne.ss_app" />
+        <package android:name="com.xodo.pdf.reader" />
+        <package android:name="ai.moises" />
     </queries>
 
     <application

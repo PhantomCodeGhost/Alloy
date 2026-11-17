@@ -186,7 +186,7 @@ class UpdateChecker(private val checkBetaUpdates: () -> Boolean = { false }) : C
                     if (Utils.isDarkModeEnabled()) R.style.Theme_DeviceDefault_Dialog_Alert
                     else R.style.Theme_DeviceDefault_Light_Dialog_Alert
                 val dialog = AlertDialog.Builder(requireActivity(), theme)
-                    .setTitle("Found new version of NexAlloy $versionName")
+                    .setTitle("Found new version of Alloy $versionName")
                     .setMessage(
                         Html.fromHtml(release.releaseNoteHtml, Html.FROM_HTML_MODE_LEGACY)
                     ).setPositiveButton(R.string.ok) { _, _ ->

@@ -11,10 +11,19 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Base Module Framework** | [NexAlloy/NexAlloy](https://github.com/NexAlloy/NexAlloy) | GPL-3.0 | `main` | Android 8.1 – 17 (API 37) | Base fork (`alloy`) |
 | **Morphe Extension Library** | [MorpheApp/morphe-patches-library](https://github.com/MorpheApp/morphe-patches-library) | GPL-3.0 | `main` | Submodule (`morphe-patches-library`) | Core helpers & bytecode utils |
 | **Morphe Patches Submodule** | [MorpheApp/morphe-patches](https://github.com/MorpheApp/morphe-patches) | GPL-3.0 | `main` | Various (see Section 2) | Submodule (`morphe-patches`) |
-| **Spotify Patches & Extension** | [2eno/morphe-patches](https://github.com/2eno/morphe-patches) / [2eno-patches](https://github.com/2eno/2eno-patches) | GPL-3.0 | `main` | **`8.9.18.512` – `8.9.84.594` (v8.9.x – 9.1.x)** | Submodule (`2eno-patches`), ported in `io.github.nexalloy.twoeno.spotify` |
-| **CapCut Patches** | [riky-dev/morphe-patches](https://github.com/riky-dev/morphe-patches) | GPL-3.0 | `main` | **`9.0.0` (v9.x)** | Ported in `io.github.nexalloy.riky.capcut` |
-| **Pinterest Patches** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | GPL-3.0 | `main` | **`14.23.0` – `14.39.0`** | Ported in `io.github.nexalloy.browzomje.pinterest` |
+| **Spotify Patches & Extension** | [pablobaro/pablobaro-morphe-patches](https://github.com/pablobaro/pablobaro-morphe-patches) & [dunecache/oyasumi-patches](https://github.com/dunecache/oyasumi-patches) | GPL-3.0 | `main` / `dev` | **`9.1.90.2270` – `9.1.94.1929+` (v9.1.x)** | Integrated in `io.github.nexalloy.pablobaro.spotify` & `app.pablobaro.extension` |
+| **Office Reader Patches** | [vippium/brokenn-patches](https://github.com/vippium/brokenn-patches) | GPL-3.0 | `dev` | **`5.0.4`** | Ported in `io.github.nexalloy.vippium.officereader` |
+| **Pinterest Patches** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | GPL-3.0 | `main` | **`14.23.0` – `14.44.0`** | Ported in `io.github.nexalloy.browzomje.pinterest` |
 | **Duolingo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`6.98.4`** | Ported in `io.github.nexalloy.hoodles.duolingo` |
+| **µTorrent Patches** | [hxreborn/morphe-patches](https://github.com/hxreborn/morphe-patches) | GPL-3.0 | `main` | **`8.3.20`** | Ported in `io.github.nexalloy.hxreborn.utorrent` |
+| **CubeX Solver Patches** | [MiguelNinja19/miguel-morphe-patches](https://github.com/MiguelNinja19/miguel-morphe-patches) | GPL-3.0 | `main` | **`4.1.1`** | Ported in `io.github.nexalloy.miguelninja.cubex` |
+| **Cronometer Patches** | [arandomhooman/hoomans-morphe-patches](https://github.com/arandomhooman/hoomans-morphe-patches) | GPL-3.0 | `main` | **`4.57.2`** | Ported in `io.github.nexalloy.arandomhooman.cronometer` |
+| **AI Detector Patches** | [GitGitro/Gitro-Morphe-Patches](https://github.com/GitGitro/Gitro-Morphe-Patches) | GPL-3.0 | `main` | **`22.0.0`** | Ported in `io.github.nexalloy.gitgitro.aidetector` |
+| **SD Maid SE Patches** | [rushiranpise/morphe-patches](https://github.com/rushiranpise/morphe-patches) | GPL-3.0 | `main` | **`2.0.3-rc0`** | Ported in `io.github.nexalloy.doom.sdmaidse` |
+| **DROFUS Patches** | [kiraio-moe/Lain-Patches](https://github.com/kiraio-moe/Lain-Patches) | GPL-3.0 | `drofus` | **`10.2.3`** | Ported in `io.github.nexalloy.kiraio.drofus` |
+| **Mark Patches** | [rushiforai/paresh-patches](https://github.com/rushiforai/paresh-patches) | GPL-3.0 | `main` | **`6.6`** | Ported in `io.github.nexalloy.paresh.mark` |
+| **Xodo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`11.2.0`** | Ported in `io.github.nexalloy.hoodles.xodo` |
+| **Moises Patches** | [mwbra130/morphe-patches-custom](https://github.com/mwbra130/morphe-patches-custom) | GPL-3.0 | `main` | **`2.141.0`** | Ported in `io.github.nexalloy.mwbra.moises` |
 
 ---
 
@@ -24,9 +33,18 @@ This document tracks all external patch repositories, upstream forks, and submod
 |:---|:---|:---|:---|
 | **YouTube** | `com.google.android.youtube` | `19.34.42` / `19.43.41` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
 | **YouTube Music** | `com.google.android.apps.youtube.music` | `6.43.52` – `7.25.52` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
-| **Spotify** | `com.spotify.music` | **`8.9.18.512` – `8.9.84.594` (v8.9.x – 9.1.x)** | Pinned to 2eno releases with dynamic view hiding |
-| **CapCut** | `com.lemon.lvoverseas` | **`9.0.0` (v9.x)** | Pinned to riky-dev releases |
-| **Pinterest** | `com.pinterest` | **`14.23.0` – `14.39.0`** | Pinned to browzomje releases |
+| **Spotify** | `com.spotify.music` | **`9.1.90.2270` – `9.1.94.1929+` (v9.1.x)** | Dynamic DexKit fingerprints (pablobaro & oyasumi) |
+| **Office Reader** | `net.sjava.officereader` | **`5.0.4`** | Pinned to vippium releases |
+| **µTorrent** | `com.utorrent.client` | **`8.3.20`** | Pinned to hxreborn releases |
+| **CubeX Solver** | `diozz.cubex` | **`4.1.1`** | Pinned to MiguelNinja19 releases |
+| **Cronometer** | `com.cronometer.android.gold` | **`4.57.2`** | Pinned to aRandomHooman releases |
+| **AI Detector** | `com.aidetector.app` | **`22.0.0`** | Pinned to GitGitro releases |
+| **SD Maid SE** | `eu.darken.sdmse` | **`2.0.3-rc0`** | Pinned to Doom releases |
+| **DROFUS** | `com.mixapplications.rufus` | **`10.2.3`** | Pinned to Lain releases |
+| **Mark** | `com.mark0ne.ss_app` | **`6.6`** | Pinned to Paresh releases |
+| **Xodo** | `com.xodo.pdf.reader` | **`11.2.0`** | Pinned to hoo-dles releases |
+| **Moises** | `ai.moises` | **`2.141.0`** | Pinned to Mwbra130 releases |
+| **Pinterest** | `com.pinterest` | **`14.23.0` – `14.44.0`** | Pinned to browzomje releases |
 | **Duolingo** | `com.duolingo` | **`6.98.4`** | Pinned to hoo-dles releases |
 | **Reddit** | `com.reddit.frontpage` | `2024.17.0` – `2026.45.0` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
 | **Threads** | `com.instagram.barcelona` | `340.0.0.32.108` / `350.x` | NexAlloy Meta hooks |
@@ -41,9 +59,9 @@ This document tracks all external patch repositories, upstream forks, and submod
 
 When an upstream patch repo releases support for a new version:
 
-### 1. CapCut (`riky-dev/morphe-patches`)
-1. Check `riky-dev/morphe-patches` repo for updated bytecode fingerprints in `patches/src/main/kotlin/app/riky/patches/capcut/`.
-2. Update `io.github.nexalloy.riky.capcut.UnlockPremiumPatch` and `EffectPlatformBypassPatch`.
+### 1. Office Reader (`vippium/brokenn-patches`)
+1. Check `vippium/brokenn-patches` repo for updated bytecode fingerprints in `patches/src/main/kotlin/app/brokenn/patches/officereader/`.
+2. Update `io.github.nexalloy.vippium.officereader.UnlockPremiumPatch` and `AmoledThemePatch`.
 
 ### 2. Pinterest (`browzomje/browzomje-patches`)
 1. Check `browzomje/browzomje-patches` for changes to `@SerializedName` ad markers or feed response constructors.
@@ -53,15 +71,9 @@ When an upstream patch repo releases support for a new version:
 1. Check `hoo-dles/morphe-patches` for changes in `User`, `LoggedInState`, or `EnergyConfig` constructors.
 2. Update `Fingerprints.kt` and `DuolingoEnablePremiumPatch.kt`.
 
-### 4. Spotify (`2eno/morphe-patches`)
-1. Pull updates in the `2eno-patches` submodule:
-   ```bash
-   cd 2eno-patches
-   git fetch origin
-   git merge origin/main
-   cd ..
-   ```
-2. Verify `app/src/main/java/io/github/nexalloy/twoeno/spotify/Fingerprints.kt` and `HideAdViewsPatch.kt`.
+### 4. Spotify (`pablobaro` & `dunecache`)
+1. Check `pablobaro/pablobaro-morphe-patches` and `dunecache/oyasumi-patches` for new releases.
+2. Verify `app/src/main/java/io/github/nexalloy/pablobaro/spotify/Fingerprints.kt` and `HideAdViewsPatch.kt`.
 
 ### 5. YouTube & Root Morphe Patches (`MorpheApp/morphe-patches`)
 1. Update `morphe-patches` submodule from root `MorpheApp/morphe-patches`:

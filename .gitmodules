@@ -6,6 +6,3 @@
 	path = morphe-patches-library
 	url = https://github.com/MorpheApp/morphe-patches-library
 	branch = main
-[submodule "2eno-patches"]
-	path = 2eno-patches
-	url = https://github.com/2eno/morphe-patches.git

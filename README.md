@@ -20,8 +20,18 @@ For best results, download the **recommended APK versions** below (preferably fr
 |:---|:---|:---|:---|:---|
 | **YouTube** | `com.google.android.youtube` | **19.34.42** / **19.43.41** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Dynamic fingerprints; broadly compatible with stable releases. |
 | **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Broadly compatible across stable builds. |
-| **Spotify** | `com.spotify.music` | **8.9.18.512** – **8.9.84.594** (v8.9.x – 9.1.x) | 2eno (`2eno-patches`) | Dynamic ad view suppression & audio muting. Enable *"Device Broadcast Status"* in Spotify settings for optimal ad muting. |
-| **Pinterest** | `com.pinterest` | **14.23.0** – **14.39.0** (v14.x) | `browzomje` | Filters sponsored pins, collapses promo views, sanitizes shared links. |
+| **Spotify** | `com.spotify.music` | **9.1.90.2270** – **9.1.94.1929+** (v9.1.x) | Pablobaro & Oyasumi (`pablobaro` / `dunecache`) | Dynamic ad view suppression, Esperanto ad blocking, Smart Shuffle disable & audio muting. |
+| **Office Reader** | `net.sjava.officereader` | **5.0.4** | Vippium (`vippium/brokenn-patches`) | Unlock premium & pure black AMOLED dark mode. |
+| **µTorrent** | `com.utorrent.client` | **8.3.20** | hxreborn (`hxreborn/morphe-patches`) | Unlock Pro, ad removal, AMOLED theme & Android 15+ screen insets fix. |
+| **CubeX Solver** | `diozz.cubex` | **4.1.1** | MiguelNinja19 (`miguel-morphe-patches`) | Unlock Premium (Advanced Solver / Kociemba, custom schemes). |
+| **Cronometer** | `com.cronometer.android.gold` | **4.57.2** | aRandomHooman (`hoomans-morphe-patches`) | Unlock Gold (custom charts, fasting tracker, ad-free). |
+| **AI Detector** | `com.aidetector.app` | **22.0.0** | GitGitro (`Gitro-Morphe-Patches`) | PairIP license bypass & Pro scanner unlock. |
+| **SD Maid SE** | `eu.darken.sdmse` | **2.0.3-rc0** | Doom / rushiranpise | Unlock SD Maid SE Pro features and license verification. |
+| **DROFUS** | `com.mixapplications.rufus` | **10.2.3** | Lain (`kiraio-moe/Lain-Patches`) | Enable Premium (unlimited ISO burner, no coins, ad-free). |
+| **Mark** | `com.mark0ne.ss_app` | **6.6** | Paresh (`rushiforai/paresh-patches`) | Unlock Premium screenshot tools & PairIP license bypass. |
+| **Xodo** | `com.xodo.pdf.reader` | **11.2.0** | hoo-dles (`hoo-dles/morphe-patches`) | Unlock Pro PDF editing, converting & viewing suite. |
+| **Moises** | `ai.moises` | **2.141.0** | Mwbra130 (`mwbra130/morphe-patches-custom`) | Unlock Premium, high quality stem extraction & audio export tools. |
+| **Pinterest** | `com.pinterest` | **14.23.0** – **14.44.0** (v14.x) | `browzomje` | Filters sponsored pins, collapses promo views, sanitizes shared links. |
 | **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | Unlocks Super subscriber features, unlimited hearts/energy, debug menu, rampup time. |
 | **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2026.45.0** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Compatible with recent stable versions. |
 | **Threads** | `com.instagram.barcelona` | **340.0.0.32.108** / **350.x** | NexAlloy / Meta | Stable across 340.x - 350.x. |
@@ -55,15 +65,24 @@ For best results, download the **recommended APK versions** below (preferably fr
 - Exclusive audio playback
 
 ### 🎧 Spotify (`com.spotify.music`)
-*(Ad-blocking & anti-tracking only — no Premium unlock)*
-- Block popup ads
-- Hide ad sections & banner views
-- Hide video ads & playlist ads
-- Hide context menu upsells
-- Hide Premium tab
-- Mute audio ads *(works best when "Device Broadcast Status" is enabled in Spotify settings)*
-- Fix third-party launcher widgets
-- Sanitize sharing links
+*(Patches from Pablobaro & Oyasumi / dunecache — stable 9.1.90 – 9.1.94+)*
+- **Disable ad breaks**: Disables ad slots ("stream" and "preroll") that trigger ads between songs via Esperanto
+- **Disable ads**: Intercepts `GetAds` Esperanto calls to prevent server ad delivery
+- **Block popup ads**: Blocks fullscreen promotional popups ("Pendragon" messages)
+- **Hide ad sections & banner views**: Removes promotional modules and dynamically collapses ad layouts
+- **Hide video ads & playlist ads**: Suppresses embedded video plugins and playlist promo cards
+- **Hide context menu upsells**: Cleans Premium upsells using modern signalling fingerprints
+- **Hide Premium tab**: Removes the bottom navigation bar Premium tab
+- **Disable Smart Shuffle default**: Keeps playback following normal queue order instead of Smart Shuffle
+- **Mute audio ads**: Backstop muting during ad playback *(best with "Device Broadcast Status" enabled in settings)*
+- **Fix third-party launcher widgets**: Resolves widget binding permissions on custom launchers
+- **Sanitize sharing links**: Strips `si` and `utm_source` tracking parameters from links
+- **Material You theme & Rounded corners**: System color tinting and rounded album artwork
+
+### 📄 Office Reader (`net.sjava.officereader`)
+*(Ported from Vippium)*
+- **Unlock premium**: Unlocks premium subscription features and removes Family-apps promotions from About screens
+- **AMOLED theme**: Makes dark mode pure black for AMOLED screens while preserving standard light mode
 
 ### 📌 Pinterest (`com.pinterest`)
 *(Ported from browzomje)*
@@ -98,6 +117,46 @@ For best results, download the **recommended APK versions** below (preferably fr
 ### 🌲 AllTrails (`com.alltrails.alltrails`)
 - Enable Peak membership
 
+### 📥 µTorrent (`com.utorrent.client`)
+*(Ported from hxreborn)*
+- **Unlock premium**: Unlocks Pro features and suppresses advertisement views
+- **AMOLED dark theme**: Pure black backgrounds for torrent and media lists
+- **Fix screen insets**: Adjusts system bar insets and display cutout padding
+
+### 🎲 CubeX Solver (`diozz.cubex`)
+*(Ported from MiguelNinja19)*
+- **Unlock premium**: Unlocks Advanced Solver (Kociemba), custom color schemes, VIP support, and removes relaunch screens
+
+### 🥗 Cronometer (`com.cronometer.android.gold`)
+*(Ported from aRandomHooman)*
+- **Unlock Gold**: Unlocks Gold charts, advanced nutritional reports, fasting tracker, custom biometrics, and ad-free experience
+
+### 🔍 AI Detector (`com.aidetector.app`)
+*(Ported from GitGitro)*
+- **Bypass license check**: Bypasses PairIP license checks
+- **Unlocks pro**: Unlocks Pro scanner capabilities and removes ad units
+
+### 🧹 SD Maid SE (`eu.darken.sdmse`)
+*(Ported from Doom / rushiranpise)*
+- **Unlock Pro**: Unlocks SD Maid SE Pro management features and removes license barriers
+
+### 💾 DROFUS (`com.mixapplications.rufus`)
+*(Ported from Lain / kiraio-moe)*
+- **Enable Premium**: Unlocks unlimited ISO burner functionality, eliminates coin limits, and disables ads
+
+### 📸 Mark (`com.mark0ne.ss_app`)
+*(Ported from Paresh)*
+- **Mark Premium**: Unlocks automatic screenshot management and removes ads with PairIP license bypass
+
+### 📑 Xodo (`com.xodo.pdf.reader`)
+*(Ported from hoo-dles)*
+- **Enable Pro**: Unlocks all subscription-locked PDF viewing, editing, and conversion features
+
+### 🎼 Moises (`ai.moises`)
+*(Ported from Mwbra130)*
+- **Unlock Premium**: Unlocks unlimited stem separations, removes monthly track limits, and bypasses paywalls
+- **High Quality Audio Export & Audio Tools**: Enables 320kbps MP3 and WAV export options, pitch shift, and smart metronome
+
 ---
 
 ## 🛠️ Building from Source
@@ -122,9 +181,19 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 - **NexAlloy** by ChsBuffer: Original base project (GPL-3.0)
 - **MorpheApp**: Upstream Morphe patches repository and extension library
 - **DexKit** by LuckyPray: High-performance runtime dex parsing library
-- **2eno**: Spotify patch implementations and reference Xposed port
+- **pablobaro**: Spotify patch bundle (ad breaks, popup blocking, dynamic layout and view filters)
+- **dunecache (Oyasumi)**: Spotify Esperanto ad suppression & Smart Shuffle defaults
+- **Vippium**: Office Reader premium unlock & AMOLED theme patch logic
+- **hxreborn**: µTorrent Pro unlock, AMOLED theme, and Android 15+ insets fix
+- **MiguelNinja19**: CubeX Solver PremiumHelper unlock logic
+- **aRandomHooman**: Cronometer Gold patch logic
+- **GitGitro**: AI Detector license bypass & Pro unlock
+- **Doom (rushiranpise)**: SD Maid SE Pro unlock
+- **Lain (kiraio-moe)**: DROFUS ISO burner premium unlock
+- **Paresh**: Mark screenshot manager premium unlock
+- **Mwbra130**: Moises stem extraction & audio tool unlock
 - **browzomje**: Pinterest patch logic and ad detection
-- **hoo-dles**: Duolingo subscriber & debug patch logic
+- **hoo-dles**: Duolingo subscriber & debug patch logic, and Xodo Pro unlock
 - **Morphe** & **ReVanced**: Bytecode patch libraries and inspiration
 
 ## ⚖️ License
