@@ -7,8 +7,6 @@ import io.github.nexalloy.gitgitro.aidetector.AiDetectorPatches
 import io.github.nexalloy.hoodles.duolingo.DuolingoPatches
 import io.github.nexalloy.hoodles.morphe.alltrails.AllTrailsPatches
 import io.github.nexalloy.hoodles.xodo.XodoPatches
-import io.github.nexalloy.hxreborn.utorrent.UtorrentPatches
-import io.github.nexalloy.kiraio.drofus.DrofusPatches
 import io.github.nexalloy.miguelninja.cubex.CubeXPatches
 import io.github.nexalloy.morphe.music.YTMusicPatches
 import io.github.nexalloy.morphe.reddit.RedditPatches
@@ -37,12 +35,10 @@ val appPatchConfigurations = listOf(
     AppPatchInfo("Pinterest", "com.pinterest", PinterestPatches),
     AppPatchInfo("Duolingo", "com.duolingo", DuolingoPatches),
     AppPatchInfo("Office Reader", "net.sjava.officereader", OfficeReaderPatches),
-    AppPatchInfo("µTorrent", "com.utorrent.client", UtorrentPatches),
     AppPatchInfo("CubeX Solver", "diozz.cubex", CubeXPatches),
     AppPatchInfo("Cronometer", "com.cronometer.android.gold", CronometerPatches),
     AppPatchInfo("AI Detector", "com.aidetector.app", AiDetectorPatches),
     AppPatchInfo("SD Maid SE", "eu.darken.sdmse", SdMaidSePatches),
-    AppPatchInfo("DROFUS", "com.mixapplications.rufus", DrofusPatches),
     AppPatchInfo("Mark", "com.mark0ne.ss_app", MarkPatches),
     AppPatchInfo("Xodo", "com.xodo.pdf.reader", XodoPatches),
     AppPatchInfo("Moises", "ai.moises", MoisesPatches),

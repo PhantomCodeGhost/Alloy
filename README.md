@@ -22,12 +22,10 @@ For best results, download the **recommended APK versions** below (preferably fr
 | **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Broadly compatible across stable builds. |
 | **Spotify** | `com.spotify.music` | **9.1.90.2270** – **9.1.94.1929+** (v9.1.x) | Pablobaro & Oyasumi (`pablobaro` / `dunecache`) | Dynamic ad view suppression, Esperanto ad blocking, Smart Shuffle disable & audio muting. |
 | **Office Reader** | `net.sjava.officereader` | **5.0.4** | Vippium (`vippium/brokenn-patches`) | Unlock premium & pure black AMOLED dark mode. |
-| **µTorrent** | `com.utorrent.client` | **8.3.20** | hxreborn (`hxreborn/morphe-patches`) | Unlock Pro, ad removal, AMOLED theme & Android 15+ screen insets fix. |
 | **CubeX Solver** | `diozz.cubex` | **4.1.1** | MiguelNinja19 (`miguel-morphe-patches`) | Unlock Premium (Advanced Solver / Kociemba, custom schemes). |
 | **Cronometer** | `com.cronometer.android.gold` | **4.57.2** | aRandomHooman (`hoomans-morphe-patches`) | Unlock Gold (custom charts, fasting tracker, ad-free). |
 | **AI Detector** | `com.aidetector.app` | **22.0.0** | GitGitro (`Gitro-Morphe-Patches`) | PairIP license bypass & Pro scanner unlock. |
 | **SD Maid SE** | `eu.darken.sdmse` | **2.0.3-rc0** | Doom / rushiranpise | Unlock SD Maid SE Pro features and license verification. |
-| **DROFUS** | `com.mixapplications.rufus` | **10.2.3** | Lain (`kiraio-moe/Lain-Patches`) | Enable Premium (unlimited ISO burner, no coins, ad-free). |
 | **Mark** | `com.mark0ne.ss_app` | **6.6** | Paresh (`rushiforai/paresh-patches`) | Unlock Premium screenshot tools & PairIP license bypass. |
 | **Xodo** | `com.xodo.pdf.reader` | **11.2.0** | hoo-dles (`hoo-dles/morphe-patches`) | Unlock Pro PDF editing, converting & viewing suite. |
 | **Moises** | `ai.moises` | **2.141.0** | Mwbra130 (`mwbra130/morphe-patches-custom`) | Unlock Premium, high quality stem extraction & audio export tools. |
@@ -117,12 +115,6 @@ For best results, download the **recommended APK versions** below (preferably fr
 ### 🌲 AllTrails (`com.alltrails.alltrails`)
 - Enable Peak membership
 
-### 📥 µTorrent (`com.utorrent.client`)
-*(Ported from hxreborn)*
-- **Unlock premium**: Unlocks Pro features and suppresses advertisement views
-- **AMOLED dark theme**: Pure black backgrounds for torrent and media lists
-- **Fix screen insets**: Adjusts system bar insets and display cutout padding
-
 ### 🎲 CubeX Solver (`diozz.cubex`)
 *(Ported from MiguelNinja19)*
 - **Unlock premium**: Unlocks Advanced Solver (Kociemba), custom color schemes, VIP support, and removes relaunch screens
@@ -139,10 +131,6 @@ For best results, download the **recommended APK versions** below (preferably fr
 ### 🧹 SD Maid SE (`eu.darken.sdmse`)
 *(Ported from Doom / rushiranpise)*
 - **Unlock Pro**: Unlocks SD Maid SE Pro management features and removes license barriers
-
-### 💾 DROFUS (`com.mixapplications.rufus`)
-*(Ported from Lain / kiraio-moe)*
-- **Enable Premium**: Unlocks unlimited ISO burner functionality, eliminates coin limits, and disables ads
 
 ### 📸 Mark (`com.mark0ne.ss_app`)
 *(Ported from Paresh)*
@@ -184,12 +172,10 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 - **pablobaro**: Spotify patch bundle (ad breaks, popup blocking, dynamic layout and view filters)
 - **dunecache (Oyasumi)**: Spotify Esperanto ad suppression & Smart Shuffle defaults
 - **Vippium**: Office Reader premium unlock & AMOLED theme patch logic
-- **hxreborn**: µTorrent Pro unlock, AMOLED theme, and Android 15+ insets fix
 - **MiguelNinja19**: CubeX Solver PremiumHelper unlock logic
 - **aRandomHooman**: Cronometer Gold patch logic
 - **GitGitro**: AI Detector license bypass & Pro unlock
 - **Doom (rushiranpise)**: SD Maid SE Pro unlock
-- **Lain (kiraio-moe)**: DROFUS ISO burner premium unlock
 - **Paresh**: Mark screenshot manager premium unlock
 - **Mwbra130**: Moises stem extraction & audio tool unlock
 - **browzomje**: Pinterest patch logic and ad detection
