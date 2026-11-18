@@ -44,10 +44,9 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Duolingo** | `com.duolingo` | **`6.98.4`** | Pinned to hoo-dles releases |
 | **Reddit** | `com.reddit.frontpage` | `2024.17.0` – `2026.45.0` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
 | **Threads** | `com.instagram.barcelona` | `340.0.0.32.108` / `350.x` | NexAlloy Meta hooks |
-| **Google Photos** | `com.google.android.apps.photos` | Any Recent Stable | Device spoof hook |
-| **Photomath** | `com.microblink.photomath` | `8.30.0` – `8.32.0` | Plus subscription hook |
-| **Strava** | `com.strava` | `360.10` – `370.x` | Subscription hook |
-| **AllTrails** | `com.alltrails.alltrails` | `18.15.0` – `19.x` | Membership hook |
+| **Photomath** | `com.microblink.photomath` | `8.30.0` – `8.32.0` | Pinned release |
+| **Strava** | `com.strava` | `360.10` – `370.x` | Pinned release |
+| **AllTrails** | `com.alltrails.alltrails` | `18.15.0` – `19.x` | Pinned release |
 
 ---
 
