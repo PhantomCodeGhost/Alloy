@@ -1,9 +1,8 @@
 package io.github.nexalloy.gitgitro.aidetector
 
-import android.content.Context
 import de.robv.android.xposed.XC_MethodReplacement
+import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
-import io.github.nexalloy.hookMethod
 import io.github.nexalloy.patch
 
 val BypassLicenseCheckPatch = patch(
@@ -14,11 +13,12 @@ val BypassLicenseCheckPatch = patch(
     runCatching {
         val licenseClientClass = XposedHelpers.findClassIfExists("com.pairip.licensecheck.LicenseClient", classLoader)
         if (licenseClientClass != null) {
-            XposedHelpers.findMethodExactIfExists(
-                licenseClientClass,
-                "checkLicense",
-                Context::class.java
-            )?.hookMethod(XC_MethodReplacement.DO_NOTHING)
+            for (method in licenseClientClass.declaredMethods) {
+                if (method.name == "checkLicense" || method.name.contains("License", ignoreCase = true)) {
+                    method.isAccessible = true
+                    XposedBridge.hookMethod(method, XC_MethodReplacement.DO_NOTHING)
+                }
+            }
         }
     }
 }

@@ -69,10 +69,20 @@ class MainHook : XposedModule() {
 
 context(xposed: XposedInterface)
 fun inContext(lpparam: PackageReadyParam, f: (Application) -> Unit) {
-    val appClazz = XposedHelpers.findClass(lpparam.applicationInfo.className, lpparam.classLoader)
-    appClazz.getMethod("onCreate").hookMethod {
+    val className = lpparam.applicationInfo.className ?: "android.app.Application"
+    val appClazz = runCatching {
+        XposedHelpers.findClass(className, lpparam.classLoader)
+    }.getOrNull() ?: Application::class.java
+
+    val onCreateMethod = runCatching {
+        appClazz.getMethod("onCreate")
+    }.getOrNull() ?: runCatching {
+        XposedHelpers.findMethodExactIfExists(appClazz, "onCreate")
+    }.getOrNull() ?: Application::class.java.getMethod("onCreate")
+
+    onCreateMethod.hookMethod {
         before {
-            val app = it.thisObject as Application
+            val app = it.thisObject as? Application ?: return@before
             Utils.setContext(app)
             f(app)
             if (modulePath.startsWith("/data/app/")) {

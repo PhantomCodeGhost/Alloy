@@ -93,6 +93,7 @@ val FeatureOverride = patch {
 
 val YouTubePatches = arrayOf(
     ExtensionHook,
+    VersionCheck,
     BackgroundPlayback,
     SanitizeSharingLinks,
     HideAds,

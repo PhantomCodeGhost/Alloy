@@ -45,29 +45,33 @@ val SettingsHook = patch(
         }
     }
 
-    val superOnCreateMethod = ::licenseActivitySuperOnCreate.method
-    val superOnCreate = xposed.getInvoker(superOnCreateMethod)
+    runCatching {
+        val superOnCreateMethod = ::licenseActivitySuperOnCreate.method
+        val superOnCreate = xposed.getInvoker(superOnCreateMethod)
 
-    ::licenseActivityOnCreateFingerprint.hookMethod(object : XC_MethodReplacement() {
-        override fun replaceHookedMethod(param: XC_MethodHook.MethodHookParam) {
-            val activity = param.thisObject as Activity
-            YouTubeActivityHook.initialize(activity)
-            activity.theme.applyStyle(R.style.ListDividerNull, true)
-            superOnCreate.invokeSpecial(param.thisObject, *param.args)
+        ::licenseActivityOnCreateFingerprint.hookMethod(object : XC_MethodReplacement() {
+            override fun replaceHookedMethod(param: XC_MethodHook.MethodHookParam) {
+                val activity = param.thisObject as Activity
+                YouTubeActivityHook.initialize(activity)
+                activity.theme.applyStyle(R.style.ListDividerNull, true)
+                superOnCreate.invokeSpecial(param.thisObject, *param.args)
+            }
+        })
+
+        // Remove other methods as they will break as the onCreate method is modified above.
+        ::licenseActivityNOTonCreate.dexMethodList.forEach {
+            if (it.returnTypeName == "void") it.hookMethod(XC_MethodReplacement.DO_NOTHING)
         }
-    })
-
-    // Remove other methods as they will break as the onCreate method is modified above.
-    ::licenseActivityNOTonCreate.dexMethodList.forEach {
-        if (it.returnTypeName == "void") it.hookMethod(XC_MethodReplacement.DO_NOTHING)
     }
 
     // Update shared dark mode status based on YT theme.
     // This is needed because YT allows forcing light/dark mode
     // which then differs from the system dark mode status.
-    ::setThemeFingerprint.hookMethod {
-        after { param ->
-            YouTubeActivityHook.updateLightDarkModeStatus(param.result as Enum<*>)
+    runCatching {
+        ::setThemeFingerprint.hookMethod {
+            after { param ->
+                YouTubeActivityHook.updateLightDarkModeStatus(param.result as Enum<*>)
+            }
         }
     }
 

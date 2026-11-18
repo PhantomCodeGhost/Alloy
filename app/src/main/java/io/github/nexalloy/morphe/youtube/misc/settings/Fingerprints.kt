@@ -39,29 +39,31 @@ val licenseActivityClass = findClassDirect {
         matcher {
             className(".LicenseActivity", StringMatchType.EndsWith)
         }
-    }.single()
+    }.first()
 }
 
 val licenseActivitySuperOnCreate = findMethodDirect {
-    licenseActivityClass().superClass!!.findMethod { matcher { name = "onCreate" } }.single()
+    licenseActivityClass().superClass!!.findMethod { matcher { name = "onCreate" } }.first()
 }
 
 val licenseActivityOnCreateFingerprint = findMethodDirect {
-    licenseActivityClass().findMethod { matcher { name = "onCreate" } }.single()
+    licenseActivityClass().findMethod { matcher { name = "onCreate" } }.first()
 }
 
 val licenseActivityNOTonCreate = findMethodListDirect {
     licenseActivityClass().methods.filter { it.name != "onCreate" && it.isMethod }
 }
 
-val appearanceStringId get() = resourceMappings["string", "app_theme_appearance_dark"]
+val appearanceStringId get() = runCatching { resourceMappings["string", "app_theme_appearance_dark"] }.getOrDefault(0)
 
 val setThemeFingerprint = findMethodDirect {
     findMethod {
         matcher {
             modifiers = Modifier.PUBLIC or Modifier.FINAL
             paramCount = 0
-            addUsingNumber(appearanceStringId)
+            if (appearanceStringId != 0) {
+                addUsingNumber(appearanceStringId)
+            }
         }
-    }.single { it.returnTypeName != "void" }
+    }.first { it.returnTypeName != "void" }
 }
