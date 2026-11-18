@@ -7,5 +7,13 @@ val markPremiumClass = findClassDirect {
         matcher {
             usingStrings("mark_service_enabled")
         }
+    }.firstOrNull() ?: findClass {
+        matcher {
+            className("j6.a")
+        }
+    }.firstOrNull() ?: findClass {
+        matcher {
+            usingStrings("mark_")
+        }
     }.first()
 }

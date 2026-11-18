@@ -1,10 +1,12 @@
 package io.github.nexalloy.hoodles.xodo
 
-import android.content.SharedPreferences
+import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XC_MethodReplacement
+import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 import io.github.nexalloy.hookMethod
 import io.github.nexalloy.patch
+import java.util.Locale
 
 val EnableProPatch = patch(
     name = "Enable Pro",
@@ -17,17 +19,25 @@ val EnableProPatch = patch(
     }
 
     runCatching {
-        XposedHelpers.findMethodExactIfExists(
-            SharedPreferences::class.java,
-            "getBoolean",
-            String::class.java,
-            Boolean::class.javaPrimitiveType
-        )?.hookMethod {
-            before { param ->
-                val key = (param.args[0] as? String)?.lowercase() ?: return@before
-                if (key.contains("pro") || key.contains("subscription") || key.contains("subscribed")) {
-                    param.result = true
-                }
+        val prefImplClass = XposedHelpers.findClassIfExists("android.app.SharedPreferencesImpl", classLoader)
+            ?: XposedHelpers.findClassIfExists("android.app.SharedPreferencesImpl", ClassLoader.getSystemClassLoader())
+
+        if (prefImplClass != null) {
+            val getBooleanMethod = XposedHelpers.findMethodExactIfExists(
+                prefImplClass,
+                "getBoolean",
+                String::class.java,
+                Boolean::class.javaPrimitiveType
+            )
+            getBooleanMethod?.let {
+                XposedBridge.hookMethod(it, object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        val key = (param.args[0] as? String)?.lowercase(Locale.ROOT) ?: return
+                        if (key.contains("pro") || key.contains("subscription") || key.contains("subscribed")) {
+                            param.result = true
+                        }
+                    }
+                })
             }
         }
     }

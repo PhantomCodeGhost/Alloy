@@ -1,8 +1,8 @@
 package io.github.nexalloy.mwbra.moises
 
-import android.content.SharedPreferences
+import de.robv.android.xposed.XC_MethodHook
+import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
-import io.github.nexalloy.hookMethod
 import io.github.nexalloy.patch
 import java.util.Locale
 
@@ -12,17 +12,25 @@ val HighQualityExportPatch = patch(
     use = true
 ) {
     runCatching {
-        XposedHelpers.findMethodExactIfExists(
-            SharedPreferences::class.java,
-            "getBoolean",
-            String::class.java,
-            Boolean::class.javaPrimitiveType
-        )?.hookMethod {
-            before { param ->
-                val key = (param.args[0] as? String)?.lowercase(Locale.ROOT) ?: return@before
-                if (key.contains("high_quality") || key.contains("wav_export") || key.contains("audio_export") || key.contains("smart_metronome")) {
-                    param.result = true
-                }
+        val prefImplClass = XposedHelpers.findClassIfExists("android.app.SharedPreferencesImpl", classLoader)
+            ?: XposedHelpers.findClassIfExists("android.app.SharedPreferencesImpl", ClassLoader.getSystemClassLoader())
+
+        if (prefImplClass != null) {
+            val getBooleanMethod = XposedHelpers.findMethodExactIfExists(
+                prefImplClass,
+                "getBoolean",
+                String::class.java,
+                Boolean::class.javaPrimitiveType
+            )
+            getBooleanMethod?.let {
+                XposedBridge.hookMethod(it, object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        val key = (param.args[0] as? String)?.lowercase(Locale.ROOT) ?: return
+                        if (key.contains("high_quality") || key.contains("wav") || key.contains("audio_export") || key.contains("metronome") || key.contains("pitch") || key.contains("tempo")) {
+                            param.result = true
+                        }
+                    }
+                })
             }
         }
     }
