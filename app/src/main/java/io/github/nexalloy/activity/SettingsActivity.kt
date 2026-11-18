@@ -154,6 +154,15 @@ class SettingsActivity : Activity(), SettingApplication.ServiceStateListener {
             return Preference(context).apply {
                 title = appName
                 key = appName
+                summary = packageName
+                val appIcon = runCatching { context.packageManager.getApplicationIcon(packageName) }.getOrNull()
+                    ?: runCatching { context.getDrawable(android.R.drawable.sym_def_app_icon) }.getOrNull()
+                if (appIcon != null) {
+                    icon = appIcon
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    isIconSpaceReserved = true
+                }
                 intent = Intent(context, AppPatchSettingsActivity::class.java).apply {
                     putExtra(AppPatchSettingsActivity.ARGUMENT_APP_NAME, appName)
                 }

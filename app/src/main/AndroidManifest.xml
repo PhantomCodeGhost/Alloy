@@ -18,7 +18,6 @@
         <package android:name="com.duolingo" />
         <package android:name="net.sjava.officereader" />
         <package android:name="com.xodo.pdf.reader" />
-        <package android:name="com.pixel.al.pixelhabittracker" />
     </queries>
 
     <application

@@ -19,7 +19,6 @@ For best results, use the recommended APK versions below and disable auto-update
 | **Spotify** | `com.spotify.music` | **9.1.90.2270** – **9.1.94.1929+** (v9.1.x) | Pablobaro & Oyasumi (`pablobaro` / `dunecache`) | Dynamic UI, layout, and playback hooks. |
 | **Office Reader** | `net.sjava.officereader` | **5.0.4** | Vippium (`vippium/brokenn-patches`) | Unlock premium & pure black AMOLED dark mode. |
 | **Xodo** | `com.xodo.pdf.reader` | **11.2.0** | hoo-dles (`hoo-dles/morphe-patches`) | Unlock Pro PDF viewing and editing suite. |
-| **Pixel Habit Tracker** | `com.pixel.al.pixelhabittracker` | **2.5.0** | Doom (`rushiranpise/morphe-patches`) | Unlock all PRO features and themes. |
 | **Pinterest** | `com.pinterest` | **14.23.0** – **14.44.0** (v14.x) | `browzomje` | Dynamic feed and layout filters. |
 | **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | Unlocks Super subscriber features & unlimited hearts. |
 | **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2026.45.0** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Compatible with recent stable versions. |
@@ -64,10 +63,6 @@ For best results, use the recommended APK versions below and disable auto-update
 ### 📑 Xodo (`com.xodo.pdf.reader`)
 *(Ported from hoo-dles)*
 - **Unlock Pro**: Complete access to all subscription-locked PDF viewing, editing, converting, and annotating tools.
-
-### 📅 Pixel Habit Tracker (`com.pixel.al.pixelhabittracker`)
-*(Ported from Doom / rushiranpise)*
-- **Unlock PRO**: Full access to premium themes, unlimited habit tracking, and advanced analytics.
 
 ### 📌 Pinterest (`com.pinterest`)
 *(Ported from browzomje)*
@@ -123,7 +118,6 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 - **pablobaro**: Spotify layout and ad suppression filters
 - **dunecache (Oyasumi)**: Spotify Esperanto hooks
 - **Vippium**: Office Reader patch logic
-- **Doom (rushiranpise)**: Pixel Habit Tracker patch logic
 - **browzomje**: Pinterest patch logic
 - **hoo-dles**: Duolingo and Xodo patch logic
 - **Morphe** & **ReVanced**: Bytecode patch libraries and inspiration

@@ -16,7 +16,6 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Pinterest Patches** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | GPL-3.0 | `main` | **`14.23.0` – `14.44.0`** | Ported in `io.github.nexalloy.browzomje.pinterest` |
 | **Duolingo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`6.98.4`** | Ported in `io.github.nexalloy.hoodles.duolingo` |
 | **Xodo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`11.2.0`** | Ported in `io.github.nexalloy.hoodles.xodo` |
-| **Pixel Habit Tracker Patches** | [rushiranpise/morphe-patches](https://github.com/rushiranpise/morphe-patches) | GPL-3.0 | `main` | **`2.5.0`** | Ported in `io.github.nexalloy.doom.pixelhabittracker` |
 
 ---
 
@@ -29,7 +28,6 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Spotify** | `com.spotify.music` | **`9.1.90.2270` – `9.1.94.1929+` (v9.1.x)** | Dynamic DexKit fingerprints (pablobaro & oyasumi) |
 | **Office Reader** | `net.sjava.officereader` | **`5.0.4`** | Pinned to vippium releases |
 | **Xodo** | `com.xodo.pdf.reader` | **`11.2.0`** | Pinned to hoo-dles releases |
-| **Pixel Habit Tracker** | `com.pixel.al.pixelhabittracker` | **`2.5.0`** | Pinned to Doom releases |
 | **Pinterest** | `com.pinterest` | **`14.23.0` – `14.44.0`** | Pinned to browzomje releases |
 | **Duolingo** | `com.duolingo` | **`6.98.4`** | Pinned to hoo-dles releases |
 | **Reddit** | `com.reddit.frontpage` | `2024.17.0` – `2026.45.0` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
