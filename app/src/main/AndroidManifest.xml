@@ -10,7 +10,6 @@
         <package android:name="com.google.android.youtube" />
         <package android:name="com.google.android.apps.youtube.music" />
         <package android:name="com.reddit.frontpage" />
-        <package android:name="com.microblink.photomath" />
         <package android:name="com.instagram.barcelona" />
         <package android:name="com.strava" />
         <package android:name="com.alltrails.alltrails" />
@@ -18,7 +17,6 @@
         <package android:name="com.pinterest" />
         <package android:name="com.duolingo" />
         <package android:name="net.sjava.officereader" />
-        <package android:name="com.mark0ne.ss_app" />
         <package android:name="com.xodo.pdf.reader" />
         <package android:name="com.pixel.al.pixelhabittracker" />
     </queries>
