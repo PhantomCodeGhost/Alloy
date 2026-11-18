@@ -1,6 +1,7 @@
 package io.github.nexalloy
 
 import io.github.nexalloy.browzomje.pinterest.PinterestPatches
+import io.github.nexalloy.doom.pixelhabittracker.PixelHabitTrackerPatches
 import io.github.nexalloy.hoodles.duolingo.DuolingoPatches
 import io.github.nexalloy.hoodles.morphe.alltrails.AllTrailsPatches
 import io.github.nexalloy.hoodles.xodo.XodoPatches
@@ -30,6 +31,7 @@ val appPatchConfigurations = listOf(
     AppPatchInfo("Office Reader", "net.sjava.officereader", OfficeReaderPatches),
     AppPatchInfo("Mark", "com.mark0ne.ss_app", MarkPatches),
     AppPatchInfo("Xodo", "com.xodo.pdf.reader", XodoPatches),
+    AppPatchInfo("Pixel Habit Tracker", "com.pixel.al.pixelhabittracker", PixelHabitTrackerPatches),
 )
 
 val patchesByPackage = appPatchConfigurations.associate { it.packageName to it.patches }

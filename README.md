@@ -20,6 +20,7 @@ For best results, use the recommended APK versions below and disable auto-update
 | **Office Reader** | `net.sjava.officereader` | **5.0.4** | Vippium (`vippium/brokenn-patches`) | Tested on target release. |
 | **Mark** | `com.mark0ne.ss_app` | **6.6** | Paresh (`rushiforai/paresh-patches`) | Tested on target release. |
 | **Xodo** | `com.xodo.pdf.reader` | **11.2.0** | hoo-dles (`hoo-dles/morphe-patches`) | Tested on target release. |
+| **Pixel Habit Tracker** | `com.pixel.al.pixelhabittracker` | **2.5.0** | Doom (`rushiranpise/morphe-patches`) | Tested on target release. |
 | **Pinterest** | `com.pinterest` | **14.23.0** – **14.44.0** (v14.x) | `browzomje` | Dynamic feed and layout filters. |
 | **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | Tested on target release. |
 | **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2026.45.0** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Compatible with recent stable versions. |
@@ -55,6 +56,7 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 - **pablobaro**: Spotify layout and ad suppression filters
 - **dunecache (Oyasumi)**: Spotify Esperanto hooks
 - **Vippium**: Office Reader patch logic
+- **Doom (rushiranpise)**: Pixel Habit Tracker patch logic
 - **Paresh**: Mark patch logic
 - **browzomje**: Pinterest patch logic
 - **hoo-dles**: Duolingo and Xodo patch logic

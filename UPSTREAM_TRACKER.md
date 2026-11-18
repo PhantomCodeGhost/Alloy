@@ -17,6 +17,7 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Duolingo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`6.98.4`** | Ported in `io.github.nexalloy.hoodles.duolingo` |
 | **Mark Patches** | [rushiforai/paresh-patches](https://github.com/rushiforai/paresh-patches) | GPL-3.0 | `main` | **`6.6`** | Ported in `io.github.nexalloy.paresh.mark` |
 | **Xodo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`11.2.0`** | Ported in `io.github.nexalloy.hoodles.xodo` |
+| **Pixel Habit Tracker Patches** | [rushiranpise/morphe-patches](https://github.com/rushiranpise/morphe-patches) | GPL-3.0 | `main` | **`2.5.0`** | Ported in `io.github.nexalloy.doom.pixelhabittracker` |
 
 ---
 
@@ -30,6 +31,7 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Office Reader** | `net.sjava.officereader` | **`5.0.4`** | Pinned to vippium releases |
 | **Mark** | `com.mark0ne.ss_app` | **`6.6`** | Pinned to Paresh releases |
 | **Xodo** | `com.xodo.pdf.reader` | **`11.2.0`** | Pinned to hoo-dles releases |
+| **Pixel Habit Tracker** | `com.pixel.al.pixelhabittracker` | **`2.5.0`** | Pinned to Doom releases |
 | **Pinterest** | `com.pinterest` | **`14.23.0` – `14.44.0`** | Pinned to browzomje releases |
 | **Duolingo** | `com.duolingo` | **`6.98.4`** | Pinned to hoo-dles releases |
 | **Reddit** | `com.reddit.frontpage` | `2024.17.0` – `2026.45.0` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
