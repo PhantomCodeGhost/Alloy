@@ -18,13 +18,8 @@ For best results, use the recommended APK versions below and disable auto-update
 | **YouTube Music** | `com.google.android.apps.youtube.music` | **6.43.52** – **7.25.52** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Broadly compatible across stable builds. |
 | **Spotify** | `com.spotify.music` | **9.1.90.2270** – **9.1.94.1929+** (v9.1.x) | Pablobaro & Oyasumi (`pablobaro` / `dunecache`) | Dynamic UI, layout, and playback hooks. |
 | **Office Reader** | `net.sjava.officereader` | **5.0.4** | Vippium (`vippium/brokenn-patches`) | Tested on target release. |
-| **CubeX Solver** | `diozz.cubex` | **4.1.1** | MiguelNinja19 (`miguel-morphe-patches`) | Tested on target release. |
-| **Cronometer** | `com.cronometer.android.gold` | **4.57.2** | aRandomHooman (`hoomans-morphe-patches`) | Tested on target release. |
-| **AI Detector** | `com.aidetector.app` | **22.0.0** | GitGitro (`Gitro-Morphe-Patches`) | Tested on target release. |
-| **SD Maid SE** | `eu.darken.sdmse` | **2.0.3-rc0** | Doom / rushiranpise | Tested on target release. |
 | **Mark** | `com.mark0ne.ss_app` | **6.6** | Paresh (`rushiforai/paresh-patches`) | Tested on target release. |
 | **Xodo** | `com.xodo.pdf.reader` | **11.2.0** | hoo-dles (`hoo-dles/morphe-patches`) | Tested on target release. |
-| **Moises** | `ai.moises` | **2.141.0** | Mwbra130 (`mwbra130/morphe-patches-custom`) | Tested on target release. |
 | **Pinterest** | `com.pinterest` | **14.23.0** – **14.44.0** (v14.x) | `browzomje` | Dynamic feed and layout filters. |
 | **Duolingo** | `com.duolingo` | **6.98.4** (v6.x) | `hoo-dles` | Tested on target release. |
 | **Reddit** | `com.reddit.frontpage` | **2024.17.0** – **2026.45.0** / Latest Stable | Morphe (`MorpheApp/morphe-patches`) | Compatible with recent stable versions. |
@@ -60,12 +55,7 @@ The compiled APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
 - **pablobaro**: Spotify layout and ad suppression filters
 - **dunecache (Oyasumi)**: Spotify Esperanto hooks
 - **Vippium**: Office Reader patch logic
-- **MiguelNinja19**: CubeX Solver patch logic
-- **aRandomHooman**: Cronometer patch logic
-- **GitGitro**: AI Detector patch logic
-- **Doom (rushiranpise)**: SD Maid SE patch logic
 - **Paresh**: Mark patch logic
-- **Mwbra130**: Moises patch logic
 - **browzomje**: Pinterest patch logic
 - **hoo-dles**: Duolingo and Xodo patch logic
 - **Morphe** & **ReVanced**: Bytecode patch libraries and inspiration

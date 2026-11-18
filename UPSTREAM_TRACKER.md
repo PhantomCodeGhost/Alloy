@@ -15,13 +15,8 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **Office Reader Patches** | [vippium/brokenn-patches](https://github.com/vippium/brokenn-patches) | GPL-3.0 | `dev` | **`5.0.4`** | Ported in `io.github.nexalloy.vippium.officereader` |
 | **Pinterest Patches** | [browzomje/browzomje-patches](https://github.com/browzomje/browzomje-patches) | GPL-3.0 | `main` | **`14.23.0` – `14.44.0`** | Ported in `io.github.nexalloy.browzomje.pinterest` |
 | **Duolingo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`6.98.4`** | Ported in `io.github.nexalloy.hoodles.duolingo` |
-| **CubeX Solver Patches** | [MiguelNinja19/miguel-morphe-patches](https://github.com/MiguelNinja19/miguel-morphe-patches) | GPL-3.0 | `main` | **`4.1.1`** | Ported in `io.github.nexalloy.miguelninja.cubex` |
-| **Cronometer Patches** | [arandomhooman/hoomans-morphe-patches](https://github.com/arandomhooman/hoomans-morphe-patches) | GPL-3.0 | `main` | **`4.57.2`** | Ported in `io.github.nexalloy.arandomhooman.cronometer` |
-| **AI Detector Patches** | [GitGitro/Gitro-Morphe-Patches](https://github.com/GitGitro/Gitro-Morphe-Patches) | GPL-3.0 | `main` | **`22.0.0`** | Ported in `io.github.nexalloy.gitgitro.aidetector` |
-| **SD Maid SE Patches** | [rushiranpise/morphe-patches](https://github.com/rushiranpise/morphe-patches) | GPL-3.0 | `main` | **`2.0.3-rc0`** | Ported in `io.github.nexalloy.doom.sdmaidse` |
 | **Mark Patches** | [rushiforai/paresh-patches](https://github.com/rushiforai/paresh-patches) | GPL-3.0 | `main` | **`6.6`** | Ported in `io.github.nexalloy.paresh.mark` |
 | **Xodo Patches** | [hoo-dles/morphe-patches](https://github.com/hoo-dles/morphe-patches) | GPL-3.0 | `main` | **`11.2.0`** | Ported in `io.github.nexalloy.hoodles.xodo` |
-| **Moises Patches** | [mwbra130/morphe-patches-custom](https://github.com/mwbra130/morphe-patches-custom) | GPL-3.0 | `main` | **`2.141.0`** | Ported in `io.github.nexalloy.mwbra.moises` |
 
 ---
 
@@ -33,13 +28,8 @@ This document tracks all external patch repositories, upstream forks, and submod
 | **YouTube Music** | `com.google.android.apps.youtube.music` | `6.43.52` – `7.25.52` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
 | **Spotify** | `com.spotify.music` | **`9.1.90.2270` – `9.1.94.1929+` (v9.1.x)** | Dynamic DexKit fingerprints (pablobaro & oyasumi) |
 | **Office Reader** | `net.sjava.officereader` | **`5.0.4`** | Pinned to vippium releases |
-| **CubeX Solver** | `diozz.cubex` | **`4.1.1`** | Pinned to MiguelNinja19 releases |
-| **Cronometer** | `com.cronometer.android.gold` | **`4.57.2`** | Pinned to aRandomHooman releases |
-| **AI Detector** | `com.aidetector.app` | **`22.0.0`** | Pinned to GitGitro releases |
-| **SD Maid SE** | `eu.darken.sdmse` | **`2.0.3-rc0`** | Pinned to Doom releases |
 | **Mark** | `com.mark0ne.ss_app` | **`6.6`** | Pinned to Paresh releases |
 | **Xodo** | `com.xodo.pdf.reader` | **`11.2.0`** | Pinned to hoo-dles releases |
-| **Moises** | `ai.moises` | **`2.141.0`** | Pinned to Mwbra130 releases |
 | **Pinterest** | `com.pinterest` | **`14.23.0` – `14.44.0`** | Pinned to browzomje releases |
 | **Duolingo** | `com.duolingo` | **`6.98.4`** | Pinned to hoo-dles releases |
 | **Reddit** | `com.reddit.frontpage` | `2024.17.0` – `2026.45.0` / Latest Stable | Dynamic DexKit fingerprints (MorpheApp) |
